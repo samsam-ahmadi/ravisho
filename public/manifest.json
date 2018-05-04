@@ -1,0 +1,29 @@
+{
+  "short_name": "ravisho",
+  "name": "راوی‌شو | محلی برای داستان نوشتن و خواندن",
+  "background_color": "#F8DA42",
+  "theme_color": "#F8DA42",
+  "display": "standalone",
+  "description": "راوی‌شو بهترین داستان‌ها",
+  "scope":".",
+  "icons": [
+    {
+    "src": "/images/icons/pwa/128x128.png",
+    "type": "image/png",
+    "sizes": "128x128"
+  }, {
+    "src": "/images/icons/pwa/152x152.png",
+    "type": "image/png",
+    "sizes": "152x152"
+  }, {
+    "src": "/images/icons/pwa/144x144.png",
+    "type": "image/png",
+    "sizes": "144x144"
+  }, {
+    "src": "/images/icons/pwa/192x192.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  }
+  ],
+  "start_url": "."
+}

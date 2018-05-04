@@ -1,0 +1,88 @@
+<template name='profilePage'>
+    <!-- {{#if  Template.subscriptionsReady}} -->
+  <main id="profile-page">
+    <div class="row">
+      <div class="col s12">
+        <div class="row">
+          <div class="col s12 center"> <img height="150px" src="/images/setting.svg" alt="صفحه تنظیمات کاربری"> </div>
+        </div>
+        {{#unless currentUser.emails.[0].verified }}
+        <div class="row">
+          <div class="col s12 m12 l6 offset-l3">
+            <div class="card light-blue darken-2">
+              <div class="card-content rtl white-text">
+                <p>برای نوشتن داستان در راوی شو، نیاز به تایید ایمیل خود دارید.</p>
+                <p>اگر ایمیل فعال سازی برای شما ارسال نشده است، می‌توانید مجددا تلاش کنید. <a class="waves-effect waves-light btn-small yellow-text text-darken-1 js-send-email-verification">ارسال تاییدیه ایمیل</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/unless}}
+
+        <div class="row">
+          <div class="col s12 m12 l6  offset-l3">
+            <div class="card">
+              <div class="card-content">
+                <form autocomplete="off">
+                <!-- inner contect and show info  -->
+                <div class="row rtl row-profile-content">
+                  <div class="col s12 m8">
+                    <div class="input-field col s12">
+                      <input value="{{users.profile.name}}" id="name" type="text" autocomplete="name" class="validate">
+                      <label for="name" class="active">نام</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <input disabled value="{{users.username}}" id="username" type="text"  autocomplete="off" class="validate">
+                      <label for="username" class="active">نام کاربری</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <input disabled value="{{users.emails.[0].address}}" id="email" autocomplete="email" type="email"  class="validate">
+                      <label for="email" class="active">ایمیل</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <input placeholder="********" min="6" id="password" type="password" autocomplete="off" class="validate">
+                      <label for="password" class="active">رمز عبور جدید</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <input placeholder="********" min="6" id="verify-password" type="password" autocomplete="off" class="validate">
+                      <label for="verify-password" class="active">تکرار رمز عبور جدید</label>
+                    </div>
+                    <div class="row center">
+                      <img class="submit-profile" src="/images/submit-profile.svg" width="120px" alt="">
+                    </div>
+                  </div>
+                  <div class="col s12 m4 center">
+                    {{#if users.profile.picture}}
+                      <div class="img-profile center">
+                        <img src="{{picture}}"  alt="">
+                      </div>
+                      <div class="file-field input-field">
+                        <div class="btn-flat black-text transparent">
+                          <span>تغییر عکس پروفایل</span>
+                          <input type="file" class="js-upload-image-profile"/>
+                        </div>
+                      </div>
+                      {{else}}
+                        <div class="img-profile center">
+                          <img src="/images/logo.jpg"  alt="">
+                        </div>
+                        <div class="file-field input-field">
+                          <div class="btn-flat black-text transparent">
+                            <span>تغییر عکس پروفایل</span>
+                            <input type="file" class="js-upload-image-profile"/>
+                          </div>
+                        </div>
+                      {{/if}}
+                    </div>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </main>
+  <!-- {{/if}} -->
+</template>

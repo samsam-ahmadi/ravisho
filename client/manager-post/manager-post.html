@@ -1,0 +1,101 @@
+<template name="managerPostPage">
+  {{#if Template.subscriptionsReady}}
+  <main>
+    <div class="container">
+      <div class="row">
+        <!-- sidebar profile  -->
+        <div class="col s12 m4 l3">
+          <div class="card no-margin">
+            <div class="card-content">
+              <div class="row">
+                <div class="col s12 right-align sidebar-profile">
+                  <div class="row">
+                    <img src="{{StoriesUser.profile.picture}}" width="55px" height="55px" class="circle right z-depth-1" alt="">
+                    <a class="username">{{StoriesUser.username}}</a>
+                  </div>
+                  <div class="row item rtl">
+                    <p class=""> دسته بندی: </p>
+                    <a>{{postItem.category_stories}}</a>
+                  </div>
+                  <div class="row item rtl">
+                    <p class="">ارسال شده:</p>
+                    <a>{{jalali postItem.created_at}}</a>
+                  </div>
+                  <div class="row item rtl">
+                    <p class="">تگ‌های داستان:</p>
+                    {{#each tags}}
+                    <a>{{this}} ,</a>
+                    {{/each}}
+                  </div>
+                  {{#if StoriesUser.unknown}} {{else}}
+                  <div class="row item rtl">
+                    <p class="">تعداد داستان‌های کاربر: </p>
+                    <a>{{StoriesUser.countStories}}</a>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end caard -->
+          {{#if postItem.content_problems}}
+          <div class="card">
+            <div class="card-content rtl">
+              <h4>مواردی که نیاز به اصلاح دارند:</h4>
+              <p>{{postItem.content_problems}}</p>
+            </div>
+          </div>
+          {{/if}}
+
+        </div>
+        <!-- end sidebar profile -->
+        <div class="col s12 m7 l7 offset-l1">
+          <div class="row">
+            <article class="col white z-depth-1 s12 single-post no-padding">
+              <header id="post-manager-header">
+                <img class="responsive-img" src="{{ImageId}}" alt="">
+                <a id="back" class="hide-on-med-and-down">
+                  <img height="50px" src="/images/icons/back.svg" alt="">
+                  <p>بازگشت</p>
+                </a>
+              </header>
+              <main class="rtl ">
+                <section class="rtl ">
+                  <h1>{{postItem.title}}</h1>
+                  {{{postItem.stories}}}
+                </section>
+              </main>
+              <footer class="submit-footer-manager">
+
+                <div class="img">
+                  <img id="js-submit-best-story" src="/images/submit-best-story.svg" alt="">
+                </div>
+                <div class="img">
+                  <img id="js-submit-story" src="/images/submit-story.svg" alt="">
+                </div>
+                <div class="img">
+                  <img id="js-correction" src="/images/submit-to-be-corrected.svg" alt="">
+                </div>
+
+
+                <!-- user can input text for corrected -->
+                <div class="modal-corrected z-depth-1 rtl white">
+                  <i class="material-icons left">close</i>
+                  <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">موارد اصلاحیه</label>
+                  </div>
+                  <!-- button submited -->
+                  <div class="row center">
+                    <a class="waves-effect js-submit-corrected waves-light btn">ارسال</a>
+                  </div>
+                </div>
+              </footer>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  {{/if}}
+</template>

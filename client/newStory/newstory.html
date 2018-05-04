@@ -1,0 +1,86 @@
+<template name="newStory">
+  <main>
+    {{#autoForm collection="Stories" id="newstory" type="insert" autocomplete="off"}}
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m12 l3">
+          <div class="card no-margin">
+
+              <div class="card-content">
+                <div class="row">
+                  <div class="col s12 right-align sidebar-profile">
+                    <div class="row">
+                      {{> afQuickField name='pictures' }}
+                    </div>
+                    <div class="row item rtl">
+                      {{> afQuickField name='category_stories' }}
+                    </div>
+                    <div class="row hide">
+                      {{> afQuickField name='created_by' }}
+                      {{> afQuickField name='email_user_story' }}
+                      {{> afQuickField name='show_manager' }}
+                      {{> afQuickField name='published' }}
+                      {{> afQuickField name='created_at' }}
+                    </div>
+                    <div class="row item rtl">
+                        {{> afQuickField name='tags' autocomplete='off' }}
+                    </div>
+                    <div class="row item rtl">
+                      {{> afQuickField name='unknown' }}
+                    </div>
+                    <div class="row item rtl no-margin">
+                      {{> afQuickField name='draft' }}
+                    </div>
+                    <div class="submit-post btn-submit-story">
+                      <button type="submit" class="btn btn-primary "></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- end sidebar profile -->
+        <div class="col s12 m12 l7 offset-l1 rtl">
+          <div class="row">
+            <article class="col z-depth-1 s12 single-post white new-story" >
+              <main>
+                <div class="row"></div>
+                <a id="back" class="hide-on-med-and-down">
+                  <img height="50px" src="/images/icons/back.svg" alt="">
+                  <p>بازگشت</p>
+                </a>
+                <div class="col s12 m8 l6 right">
+                    {{> afQuickField name='title' }}
+                </div>
+              </main>
+            </article>
+            <article class="col z-depth-1 s12 single-post white new-story no-padding" >
+              <main>
+                <section class="rtl story-description">
+                  <div class="row"></div>
+                  <div class="editor"></div>
+                  <div class="row"></div>
+                </section>
+              </main>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/autoForm}}
+  </main>
+</template>
+
+
+<template name="afFileSelectFileBtnTemplateFixed">
+  <span class="btn btn-default af-select-file js-af-select-file">
+    <p>  تصویر داستان</p>
+    <input type="file" class="js-file" accept="{{accept}}">
+    <p>اپلود</p>
+  </span>
+</template>
+<template name="afFileRemoveFileBtnTemplateFixed">
+  <span class="af-select-file js-af-remove-file">
+  <i class="material-icons">clear</i>
+  </span>
+</template>

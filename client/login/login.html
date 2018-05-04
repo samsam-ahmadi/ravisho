@@ -1,0 +1,53 @@
+<template name="loginPage">
+
+    <div class="row  login-page">
+        <!--  -->
+
+        <div class="login-frm z-depth-1 white">
+            <ul class="tabs center">
+              <li class="tab col s6 signUp"><a class="active">ثبت نام</a></li>
+              <li class="tab col s6 signIn active" ><a id="at-signup" class="at-link at-signup">ورود</a></li>
+            </ul>
+            <div id="login-register" class="col s12">{{> atForm }}</div>
+        </div>  <!-- /col -->
+        <img class="img-login" src="/images/background-login.svg" alt="">
+    </div>
+
+</template>
+
+<template name="changePassword">
+
+    <div class="row  ">
+
+
+        <!-- ads book in here start -->
+        <div class="col s12 m8 l6 right-align   offset-l3">
+
+            {{> atForm  state="changePwd"}}
+
+        </div>  <!-- /col -->
+
+
+    </div>
+
+
+</template>
+
+
+<template name="sendEmailVerify">
+
+    <div class="row  ">
+
+
+        <!-- ads book in here start -->
+        <div class="col s12 m8 l6 right-align   offset-l3">
+
+            {{> atForm  state="resendVerificationEmail"}}
+
+        </div>  <!-- /col -->
+
+
+    </div>
+
+
+</template>

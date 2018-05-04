@@ -1,0 +1,113 @@
+<template name="usersPage">
+
+	<main class="">
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row"></div>
+		<!-- search box and filter row -->
+		<div class="row">
+			<!-- input search -->
+			<div class="col s12 center">
+				<div class="input-field search-box rtl col s12 m6 l4 offset-m3 offset-l4">
+					<input placeholder="جستجوی کاربر..." id="searching-user" type="text" class="validate">
+				</div>
+			</div>
+		</div>
+
+
+			<div class="container md-padding " >
+				<div class="contant row "> <!-- main contant  -->
+
+					<div class="main-contant col l12 m12  s12 row ">
+
+						<!-- div contant card center -->
+						<table class="centered rtl table">
+							<thead>
+								<tr>
+									<th data-field="username">نام کاربری</th>
+									<th data-field="email">ایمیل</th>
+									<th data-field="verify">تایید شده</th>
+									<th data-field="roles">نقش</th>
+									<th data-field="reg">اجازه ثبت داستان</th>
+									<th data-field="howmuch">تعداد داستان</th>
+									<th data-field="delete">حذف کاربر</th>
+								</tr>
+							</thead>
+
+							<tbody >
+
+
+								<!-- This is displayed when all data is ready. -->
+								{{> userList}}
+
+
+
+
+							</tbody>
+						</table>
+
+
+					</div>
+				</div>
+
+			</div>
+
+
+		</main> <!-- end main body -->
+
+
+
+	</template>
+
+	<template name="userList">
+
+		{{#each users}}
+		<tr class="hoverable" id="{{this._id}}">
+			<td>{{username}}</td>
+			<td>{{emails.[0].address}}</td>
+			<td>
+			{{#if emails.[0].verified}}
+				<i class="material-icons green-text">check</i>
+			{{else}}
+				<i class="material-icons red-text">block</i>
+			{{/if}}
+			</td>
+			<td>
+				<select class="browser-default change-role">
+						<option value="" disabled selected>{{roles}}</option>
+						<option value="admin">admin</option>
+						<option value="management">management</option>
+						<option value="default">default</option>
+						<option value="blocked">blocked</option>
+				</select>
+			</td>
+			<td>
+				
+				<div class='switch' id="js-for-banned-user">
+					<label>
+						<input  name='switch_Activate'
+						type='checkbox' {{isBanned canCreateStories}}>
+						<span class='lever'></span>
+					</label>
+				</div>
+			</td>
+			<td ><a class="red-text text-darken-2 ">{{countStories}}</a></td>
+			<td class="td">
+				<a class="waves-effect waves-light red darken-3 btn del_user">حذف</a>
+				<div id="del_user_list_modal" class="modal delete-user-modal">
+					<div class="modal-content">
+
+						<p>در صورت حذف کاربر مورد نظر آگهی های آن نیز حذف میشود.</p>
+					</div>
+					<div class="modal-footer">
+						<a class=" deleteـuserـmodal modal-action modal-close waves-effect waves-green btn light-blue darken-2">ثبت</a>
+					</div>
+				</div>
+
+			</td>
+		</tr>
+		<td>{{phone}}</td>
+
+		{{/each}}
+
+	</template>

@@ -1,0 +1,71 @@
+<template name="listStoriesUser">
+    <main>
+        <div class="row">
+            <div class="col s12">
+                <div class="row">
+                    <div class="col s12 center img-title-page">
+                        <img height="120px" src="/images/my-story.svg" alt="داستان‌های من"> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 articles">
+                        <!-- article -->
+                        {{#if Template.subscriptionsReady}}
+                            {{#unless listStories}}
+                                <div class="card">
+                                    <div class="card-content rtl">
+                                        <p>شما هنوز داستانی در راوی‌شو ندارید! بریم<a href="/new"> اولین داستانم </a> رو بنویسم.</p>
+                                        
+                                    </div>
+                                </div>
+                            {{else}}
+                                {{#each listStories }}
+                                    <div class="article rtl">
+                                        <div class="card">
+                                            <img  src="{{condition}}" width="100px" class="responsive-img condition-story" alt="">
+                                            <div class="card-image">
+                                                {{#with ImageId}}
+                                                    <img src="{{this.url}}"> 
+                                                {{/with}}
+                                            </div>
+                                            <div class="row">
+                                                <div class="col s12 side center">
+                                                    <img class="circle z-depth-1" width="55px" height="55px" src="{{profileImg.profile.picture}}" alt="">
+                                                    <div class="item">
+                                                        <p>{{count_likes}}</p>
+                                                        <img width="30px" height="30px" src="/images/icons/like.svg" alt="">
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="">{{category_stories}}</a>
+                                                        <img width="35px" height="35px" src="/images/icons/category.svg" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-content">
+                                                <div class="row">
+                                                    <div class="col s12 right-align">
+                                                        <h2 class="truncate">{{title}}</h2>
+                                                        <!-- {{#with stories}} -->
+                                                        <p>{{getDescription stories}} </p>
+                                                        <!-- {{/with}} -->
+                                                    </div>
+                                                </div>
+                                                <div class="row center no-margin">
+                                                    <a href="/s/{{_id}}/{{title}}">
+                                                        <img height="45px" src="/images/readmore.svg" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {{/each}} 
+                            {{/unless}}
+                        {{/if}}
+
+                        <!-- end article -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</template>

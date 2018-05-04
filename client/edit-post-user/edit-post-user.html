@@ -1,0 +1,77 @@
+<template name="updateStory">
+    <main>
+        {{#if Template.subscriptionsReady}} {{#with editStory}} {{#autoForm collection="Stories" id="updatestory" doc=this type="update"}}
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l3">
+                    <div class="card no-margin">
+
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s12 right-align sidebar-profile">
+                                    <div class="row">
+                                        {{> afQuickField name='pictures' }}
+                                    </div>
+                                    <div class="row item rtl">
+                                        {{> afQuickField name='category_stories' }}
+                                    </div>
+                                    <div class="row hide">
+                                        {{> afQuickField name='created_by' }} {{> afQuickField name='email_user_story' }} {{> afQuickField name='show_manager' }} {{>
+                                        afQuickField name='published' }} {{> afQuickField name='created_at' }}
+                                    </div>
+                                    <div class="row item rtl">
+                                        <div class="input-field col s12">
+                                            <input id="tags" type="text" class="validate">
+                                            <label for="tags">کلید واژه‌های داستان را با(،)جدا کنید</label>
+                                        </div>
+                                    </div>
+                                    <div class="row item rtl">
+                                        {{> afQuickField name='unknown' }}
+                                        {{> afQuickField name='show_manager' }}
+                                    </div>
+                                    <div class="row item rtl no-margin">
+                                        {{> afQuickField name='draft' }}
+                                    </div>
+                                    <div class="submit-post btn-submit-story">
+                                        <button type="submit" class="btn btn-primary "></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end sidebar profile -->
+                <div class="col s12 m12 l7 offset-l1 rtl main-content">
+                    <div class="row">
+                        <article class="col white z-depth-1 s12 single-post new-story">
+                            <main class="row">
+                                <div class="row"></div>
+                                <a id="back" class="hide-on-med-and-down">
+                                    <img height="50px" src="/images/icons/back.svg" alt="">
+                                    <p>بازگشت</p>
+                                </a>
+                                <div class="col s12 m8 l6 right">
+                                    {{> afQuickField name='title' }}
+                                </div>
+                            </main>
+                        </article>
+                        <div class="row"></div>
+                        <article class="col white z-depth-1 s12 single-post new-story no-padding">
+                            <main>
+                                <section class="rtl story-description">
+                                    <div class="row"></div>
+                                    <div class="editor"></div>
+                                    <div class="row"></div>
+                                    <div class="editor-text hide rtl">
+                                        <div class="editor-text-content"></div>
+                                    </div>
+                                </section>
+                            </main>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/autoForm}} {{/with}} {{/if}}
+    </main>
+</template>

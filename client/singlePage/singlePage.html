@@ -1,0 +1,181 @@
+<template name="singleStoryPage">
+  {{#if Template.subscriptionsReady}}
+  <main>
+    <div class="container">
+      <div class="row">
+        <!-- sidebar profile  -->
+        <div class="col s12 m12 l3">
+          <div class="card no-margin sidebar-single-page  ">
+
+            <div class="card-content">
+              <div class="row">
+                <div class="col s12 right-align sidebar-profile">
+                  <div class="row">
+                    {{#if StoriesUser.profile.picture}}
+                    <img src="{{StoriesUser.profile.picture}}" width="55px" height="55px" class="circle right z-depth-1" alt=""> {{else}}
+                    <img src="/images/logo.svg" width="55px" height="55px" class="circle right z-depth-1" alt=""> {{/if}}
+                    <p class="username">{{StoriesUser.username}}</p>
+                  </div>
+                  <div class="row item rtl">
+                    <p class=""> تعداد لایک: </p>
+                    <span>{{postItem.count_likes}}</span>
+                  </div>
+                  <div class="row item rtl">
+                    <p class=""> دسته بندی: </p>
+                    <a>{{postItem.category_stories}}</a>
+                  </div>
+                  <div class="row item rtl">
+                    <p class="">ارسال شده: </p>
+                    <a>{{jalali}}</a>
+                  </div>
+                  <div class="row item rtl">
+                    <p class="">تگ‌های داستان:</p>
+                    {{#each tags}}
+                    <a>{{this}} ,</a>
+                    {{/each}}
+                  </div>
+                  {{#if StoriesUser.unknown}}
+                  <div class="row item rtl share">
+                    <p class="">تعداد داستان‌های کاربر: </p>
+                    <a>{{StoriesUser.countStories}}</a>
+                  </div>
+                  {{/if}}
+                  <div class="like-post {{countLikesStories.like}} {{#unless postItem.published}} hide {{/unless}}">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 94 94"
+                      style="enable-background:new 0 0 94 94;" xml:space="preserve">
+                      <style type="text/css">
+                        .st0 {
+                          fill: #E53935;
+                        }
+
+                        .st1 {
+                          fill: #FFFFFF;
+                          stroke: #0288D1;
+                          stroke-width: 0.75;
+                          stroke-linecap: round;
+                          stroke-linejoin: round;
+                          stroke-miterlimit: 10;
+                        }
+
+                        .st2 {
+                          fill: none;
+                          stroke: #0288D1;
+                          stroke-miterlimit: 10;
+                        }
+
+                        .st3 {
+                          fill: #FFFFFF;
+                          stroke: #0288D1;
+                          stroke-width: 0.75;
+                          stroke-miterlimit: 10;
+                        }
+                      </style>
+                      <g id="_x35_" class="likesg">
+                        <path class="st0" id="js-like6" d="M53.1,35.3c-2.3,0-4.5,1.2-5.7,3.2c-0.2,0.3-0.5,0.4-0.8,0.2c-0.1-0.1-0.2-0.1-0.2-0.2
+                    				c-1.1-2-3.2-3.2-5.5-3.2c-3.7,0-6.4,3.2-6.7,6.9c-0.1,0.9,0,1.8,0.2,2.6c0.5,2.3,1.8,4.3,3.5,5.9l8.6,7.8c0.2,0.2,0.6,0.2,0.8,0
+                    				l8.7-7.8c1.7-1.6,3-3.6,3.5-5.9c0.2-0.8,0.3-1.7,0.2-2.6C59.5,38.5,56.8,35.3,53.1,35.3z" />
+                      </g>
+                      <g id="_x34_" class="likesg">
+                        <path class="st1" id="js-like5" d="M71.5,34.8L71.5,34.8c-3.7-4.6-9.6-6.8-15.3-5.8c-5.7,1-11.7,0.9-17.3-0.4c-2.1-0.5-4.1-1-6.1-1.6
+                    			c-4.4-1.3-9.2,0.9-11.1,5.1l0,0.1c-1.6,3.5-1.7,7.5-0.3,11.1c1,2.7,2.8,4.9,4.2,7.4c1.3,2.2,2.2,4.6,2.8,7.1
+                    			c1.2,5.2,6.4,8.3,11.6,6.8c0.4-0.1,0.7-0.2,1.1-0.3c10.2-2.3,20.6,2.9,31,3c1,0,1.9-0.8,1.9-1.8l0,0c0.1-2.1,0.7-4.1,1.5-5.9
+                    			C79.2,51.5,77,41.7,71.5,34.8z" />
+                        <path class="st2" d="M46.4,38.5c0.2,0.3,0.5,0.4,0.8,0.2c0.1-0.1,0.2-0.1,0.2-0.2c1.2-2,3.4-3.2,5.7-3.2c3.7,0,6.4,3.2,6.7,6.9
+                    			c0.1,0.9,0,1.8-0.2,2.6c-0.5,2.3-1.8,4.3-3.5,5.9l-8.7,7.8c-0.2,0.2-0.6,0.2-0.8,0L38,50.7c-1.7-1.6-3-3.6-3.5-5.9
+                    			c-0.2-0.8-0.3-1.7-0.2-2.6c0.3-3.8,3-6.9,6.7-6.9C43.2,35.3,45.3,36.6,46.4,38.5z" />
+                      </g>
+                      <g id="_x33_" class="likesg">
+                        <path class="st1" id="js-like4" d="M26.6,71.2c4.8-2.5,9.5-5.6,14.8-6.8c10.2-2.3,20.7,3,31.1,3c1,0,1.8-0.8,1.9-1.8c0,0,0,0,0,0
+                    			c0.2-3,1.7-5.7,2.5-8.6c2.2-7.5,0-16-5-22.1l-0.1-0.1c-3.7-4.5-9.5-6.7-15.2-5.7c-5.7,1-11.7,0.9-17.3-0.4
+                    			c-6.6-1.5-13-4.4-19.8-3.9c-0.4,0-0.8,0.1-1.2,0.1c-8,1.1-14,7.7-15.2,15.6c-0.3,2.1-0.5,4.3-0.5,6.5c0,6,1.2,11.7,3.4,17
+                    			c3.3,8,12.8,11.3,20.5,7.3L26.6,71.2z" />
+                        <path class="st2" d="M46.3,38.5c0.2,0.3,0.5,0.4,0.8,0.2c0.1-0.1,0.2-0.1,0.2-0.2c1.2-2,3.4-3.2,5.7-3.2c3.7,0,6.4,3.2,6.7,6.9
+                    			c0.1,0.9,0,1.8-0.2,2.6c-0.5,2.3-1.8,4.3-3.5,5.9l-8.7,7.8c-0.2,0.2-0.6,0.2-0.8,0l-8.6-7.8c-1.7-1.6-3-3.6-3.5-5.9
+                    			c-0.2-0.8-0.3-1.7-0.2-2.6c0.3-3.8,3-6.9,6.7-6.9C43.2,35.3,45.3,36.6,46.3,38.5z" />
+                      </g>
+                      <g id="_x32_" class="likesg">
+                        <path class="st1" id="js-like3" d="M78,76.3c-2.2-3.3-4-6.9-3.7-10.7c0.2-3,1.7-5.7,2.5-8.6c2.2-7.5,0-16-5-22.1c0,0,0-0.1-0.1-0.1
+                    			c-3.8-4.6-9.8-6.6-15.6-5.7c-5.6,0.9-11.4,0.8-16.9-0.4c-6.6-1.5-13-4.4-19.8-3.9c-0.3,0-0.7,0.1-1,0.1c-8,1-14.1,7.6-15.3,15.6
+                    			c-0.3,2.1-0.5,4.3-0.5,6.6c0,24.5,19.9,44.4,44.4,44.4c11.9,0,22.7-4.7,30.6-12.3C78.4,78.4,78.6,77.2,78,76.3z"
+                        />
+                        <path class="st2" d="M46.3,38.5c0.2,0.3,0.5,0.4,0.8,0.2c0.1-0.1,0.2-0.1,0.2-0.2c1.2-2,3.4-3.2,5.7-3.2c3.7,0,6.4,3.2,6.7,6.9
+                    			c0.1,0.9,0,1.8-0.2,2.6c-0.5,2.3-1.8,4.3-3.5,5.9l-8.7,7.8c-0.2,0.2-0.6,0.2-0.8,0l-8.6-7.8c-1.7-1.6-3-3.6-3.5-5.9
+                    			c-0.2-0.8-0.3-1.7-0.2-2.6c0.3-3.8,3-6.9,6.7-6.9C43.2,35.3,45.3,36.6,46.3,38.5z" />
+                      </g>
+                      <g id="_x31_" class="likesg">
+                        <path class="st1" id="js-like2" d="M74.3,65.6c0.2-3,1.7-5.7,2.5-8.6c2.2-7.5,0-16-5-22.1c-2.4-2.9-5.5-5.6-6.3-9.3c-0.6-2.6,0-5.4-0.1-8.1
+                    			c0-0.3,0-0.7-0.1-1c-0.6-7.3-6.7-12.9-14-13.6c-1.4-0.1-2.9-0.2-4.4-0.2C22.5,2.6,2.6,22.5,2.6,47c0,24.5,19.9,44.4,44.4,44.4
+                    			c11.9,0,22.7-4.7,30.6-12.3c0.8-0.7,0.9-1.9,0.3-2.8C75.8,73,74,69.4,74.3,65.6z" />
+                        <path class="st2" d="M46.3,38.5c0.2,0.3,0.5,0.4,0.8,0.2c0.1-0.1,0.2-0.1,0.2-0.2c1.2-2,3.4-3.2,5.7-3.2c3.7,0,6.4,3.2,6.7,6.9
+                    			c0.1,0.9,0,1.8-0.2,2.6c-0.5,2.3-1.8,4.3-3.5,5.9l-8.7,7.8c-0.2,0.2-0.6,0.2-0.8,0l-8.6-7.8c-1.7-1.6-3-3.6-3.5-5.9
+                    			c-0.2-0.8-0.3-1.7-0.2-2.6c0.3-3.8,3-6.9,6.7-6.9C43.2,35.3,45.3,36.6,46.3,38.5z" />
+                      </g>
+                      <g id="_x30_" class="likesg">
+                        <path class="st3" id="js-like1" d="M91.4,47c0,24.5-19.9,44.4-44.4,44.4l0,0C22.5,91.4,2.6,71.5,2.6,47l0,0C2.6,22.5,22.5,2.6,47,2.6l0,0
+                    			C71.5,2.6,91.4,22.5,91.4,47z" />
+                        <path class="st2" d="M46.3,38.5c0.2,0.3,0.5,0.4,0.8,0.2c0.1-0.1,0.2-0.1,0.2-0.2c1.2-2,3.4-3.2,5.7-3.2c3.7,0,6.4,3.2,6.7,6.9
+                    			c0.1,0.9,0,1.8-0.2,2.6c-0.5,2.3-1.8,4.3-3.5,5.9l-8.7,7.8c-0.2,0.2-0.6,0.2-0.8,0l-8.6-7.8c-1.7-1.6-3-3.6-3.5-5.9
+                    			c-0.2-0.8-0.3-1.7-0.2-2.6c0.3-3.8,3-6.9,6.7-6.9C43.2,35.3,45.3,36.6,46.3,38.5z" />
+                      </g>
+                    </svg>
+
+                  </div>
+                  <!-- messages like -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row center">
+            <p id="msg-like">{{countLikesStories.msg}}</p>
+          </div>
+        </div>
+
+        <!-- end sidebar profile -->
+        <div class="col s12 m12 l9 main-content">
+          {{#if postItem.content_problems}}
+          <div class="row ">
+            <div class="card no-margin rtl content-problem">
+              <div class="card-content">
+                <p id="content-problem">{{postItem.content_problems}}</p>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          <div class="row">
+            <article class="col z-depth-1 s12 single-post no-padding white">
+              <header id="post-manager-header">
+                {{#if canEdit}}
+                <a class="edit-story-user" href="/e/{{postItem._id}}/{{postItem.title}}">
+                  <i class="material-icons">edit</i>
+                </a>
+                {{/if}}
+                <img class="responsive-img" src="{{ImageId}}" alt="">
+                <span id="back" class="hide-on-med-and-down">
+                  <img height="50px" src="/images/icons/back.svg" alt="">
+                  <p>بازگشت</p>
+                </span>
+              </header>
+              <main class="rtl">
+                <h1>{{postItem.title}}</h1>
+                <section class="rtl no-padding">
+                  {{{postItem.stories}}}
+                </section>
+              </main>
+            </article>
+          </div>
+              <div class="row share-it ">
+                <p>اشتراک‌گذاری </p>
+                <a href="https://telegram.me/share/url?url=https://ravisho.com/s/{{postItem._id}}/{{postItem.title}}">
+                  <img width="35px" src="/images/icons/social/telegram.svg" alt="انتشار در تلگرام">
+                </a>
+                <a href="https://twitter.com/home?status=https://ravisho.com/s/{{postItem._id}}/{{postItem.title}}">
+                  <img width="35px" src="/images/icons/social/twitter.svg" alt="انتشار در توییتر">
+                </a>
+              </div>
+          <!-- end row -->
+        </div>
+      </div>
+    </div>
+  </main>
+  {{/if}}
+</template>

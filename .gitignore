@@ -1,0 +1,4 @@
+node_modules/
+.meteor/local/
+.vscode/
+packages/
