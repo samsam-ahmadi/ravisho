@@ -1324,41 +1324,6 @@ img.img-login{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #ourStory .carousel > li {
   width: 220px;
   text-align: center;
@@ -1479,16 +1444,16 @@ img.img-login{
   transition: all 0.4s ease-in-out;
 }
 
-/* 
-#ourStory .user-story.active .title,#ourStory .user-story.active .story{
-  opacity: 1;
-  transition: all 1s ease-in-out;
-}
 
-#ourStory .user-story .title,#ourStory .user-story .story{
-  opacity: 0;
-  transition: all 1s ease-in-out;
-} */
+
+/* terms */
+#term-page p{
+  list-style-type:disc;
+  display:list-item;
+  margin-right: 10px;
+  line-height: 30px;
+  margin-bottom: 5px;
+}
 
 
 
