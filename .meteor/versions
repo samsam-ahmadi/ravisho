@@ -8,6 +8,7 @@ aldeed:schema-deny@1.1.0
 aldeed:schema-index@1.1.1
 aldeed:simple-schema@1.5.4
 allow-deny@1.1.0
+altapp:recaptcha@2.0.1
 autoupdate@1.4.0
 babel-compiler@7.0.5
 babel-runtime@1.2.2
@@ -64,6 +65,7 @@ fortawesome:fontawesome@4.5.0
 fourseven:scss@4.5.4
 geojson-utils@1.0.10
 gildaspk:autoform-materialize@0.0.26
+handlebars@1.0.7
 hipstersmoothie:scrollmagic@0.0.9
 hot-code-push@1.0.4
 html-tools@1.0.11

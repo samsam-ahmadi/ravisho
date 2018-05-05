@@ -1458,6 +1458,15 @@ img.img-login{
 
 
 
+/* contact us  */
 
+#submit-contact{
+  background-image: url("/images/submit-form.svg");
+  background-size:90px; 
+  width: 100px;
+  height: 70px;
+}
 
-
+.g-recaptcha{
+  margin-bottom: 100px;
+}

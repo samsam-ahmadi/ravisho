@@ -1,0 +1,58 @@
+<template name='contactUs'>
+    <main id="">
+        <div class="row">
+            <div class="col s12">
+                <div class="row">
+                    <div class="col s12 center">
+                        <img height="150px" src="/images/contact-us.svg" alt="ارتباط با ما">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m8 offset-m2 l4 offset-l4">
+                        <div class="card">
+                            <div class="card-content">
+                                <form id="contact-us" >
+                                    <!-- inner contect and show info  -->
+                                    <div class="row rtl row-profile-content">
+                                        <div class="col s12">
+                                            <div class="input-field col s12">
+                                                <input id="name" name="name" autocomplete="name" type="text" class="validate" required>
+                                                <label for="name" class="active">نام</label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input id="email" autocomplete="email" name="email" type="email" class="validate" required>
+                                                    <label for="email">ایمیل</label>
+                                                </div>
+                                            </div>
+                                            <select class="browser-default" name="subject">
+                                                <option value="" disabled selected>موضوع خود را انتخاب کنید.</option>
+                                                <option value="صحبت دوستانه">صحبت دوستانه</option>
+                                                <option value="گزارش تخلف کاربران">گزارش تخلف کاربران</option>
+                                                <option value="پیشنهاد و انتقاد">پیشنهاد و انتقاد</option>
+                                                <option value="مشکلات سایت">مشکلات سایت</option>
+                                            </select>
+
+                                            <div class="input-field col s12">
+                                                <textarea id="textarea1" name="text" class="materialize-textarea" required></textarea>
+                                                <label for="textarea1">متن پیام</label>
+                                            </div>
+                                           <div class="row">
+                                                {{> reCAPTCHA}}
+                                           </div>
+                                            <div class="row center">
+                                                <button class="btn-flat" type="submit" id="submit-contact"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <!-- {{/if}} -->
+</template>

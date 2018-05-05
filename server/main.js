@@ -21,7 +21,7 @@ Meteor.startup(() => {
             {name:"Manager-stories User",username:"manager",email:"manage@example.com",profile:{phone:"95656454"},roles:['management']},
             {name:"Admin User",username:"admin",email:"admin@admin.com",profile:{phone:"9645645"},roles:['admin']},
             {name:"baned",username:"banned",email:"banned@user.com",profile:{phone:"9645645"},roles:['banned']},
-            {name:"ravisho",username:"ravisho",email:"ravisho@ravisho.com",roles:['admin']}
+            {name:"ravisho",username:"ravisho",email:"support@ravisho.com",roles:['admin']}
         ];
         
         _.each(users, function (userData) {
