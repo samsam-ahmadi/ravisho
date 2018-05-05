@@ -123,6 +123,9 @@ h1{
 .notify-link{
   top: 0px;
 }
+.btn-floating{
+  background-color: #0288D1;
+}
 nav {
   -webkit-box-shadow: unset;
           box-shadow: unset;
@@ -194,7 +197,7 @@ nav ul a:hover {
     background-color: rgba(0, 0, 0, 0);
 }
 .fixed-action-btn a{
-  padding:12px 15px;
+  padding: 11px 17px;
 }
 .menu-content{
   position: fixed;
