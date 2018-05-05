@@ -1,15 +1,21 @@
 <template name="footer">
     <footer class="page-footer rtl">
         <div class="rtl">
-            <div class="row rtl ">
+            <div class="row rtl no-margin">
 
-
-
-
-                <div class="col s12 m6 l2 left">
+                <div class="col s12 m6 l2 left no-padding">
                     <div class="row social-icons left no-margin">
                         <img src="/images/footer/instagram.svg" width="60px" alt="راوی‌شو | اینستاگرام">
                         <img src="/images/footer/telegram.svg" width="60px" alt="راوی‌شو | تلگرام">
+                    </div>
+                </div>
+
+                <!-- for users links -->
+                <div class="col s6 m6 l2">
+                    <div class="row center">
+                        <img src="/images/footer/stories.svg" width="60px" alt="تعداد داستان‌های منتشر شده">
+                        <p>تا این لحظه</p>
+                        <a id="countStories">{{numberOfStories}} </a>
                     </div>
                 </div>
                 <!-- site links  -->
@@ -17,10 +23,10 @@
                     <h5 class="black-text">راوی‌شو</h5>
                     <ul>
                         <li>
-                            <a class="grey-text text-darken-4" href="/about-us">درباره ما</a>
+                            <a class="grey-text text-darken-4" href="/our-story">درباره ما</a>
                         </li>
                         <li>
-                            <a class="grey-text text-darken-4" href="/terms-conditions">قوانین و مقررات</a>
+                            <a class="grey-text text-darken-4" href="/terms">قوانین و مقررات</a>
                         </li>
                         <li>
                             <a class="grey-text text-darken-4" href="/contact-us">تماس با ما</a>
@@ -30,18 +36,7 @@
                         </li>
                     </ul>
                 </div>
-                <!-- for users links -->
-                <div class="col s6 m6 l2">
-                    <h5 class="black-text">برای شما</h5>
-                    <ul>
-                        <li>
-                            <a class="grey-text text-darken-4" href="!#">آموزش داستان‌نویسی</a>
-                        </li>
-                        <li>
-                            <a class="grey-text text-darken-4" href="!#">مجله الکترونیک راوی‌شو</a>
-                        </li>
-                    </ul>
-                </div>
+
                 <!-- quick aaccess to menu links -->
                 <div class="col s6 m6 l2">
                     <h5 class="black-text">دسترسی سریع</h5>
@@ -54,6 +49,12 @@
                         </li>
                         <li>
                             <a class="grey-text text-darken-4" href="/contact-us">درخواست ناظر شدن</a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-darken-4" href="!#">آموزش داستان‌نویسی</a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-darken-4" href="!#">مجله الکترونیک راوی‌شو</a>
                         </li>
                     </ul>
                 </div>

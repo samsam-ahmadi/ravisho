@@ -3,48 +3,77 @@
     <nav class="">
       <div class="nav-wrapper">
         <ul class="left">
-            {{#if currentUser}}
-            <li id="js-profile">
-              <a class="dropdown-button " data-activates="dropdownprofile">
-                <img  class="white z-depth-1 circle"  src="{{imageuser}}" alt="تصویر پروفایل">
-                <div class="icon {{#unless currentUser.emails.[0].verified }} not-verified-user {{/unless}}"><i class="material-icons">keyboard_arrow_down</i></div>
-              </a>
+          {{#if currentUser}}
+          <li id="js-profile">
+            <a class="dropdown-button " data-activates="dropdownprofile">
+              <img class="white z-depth-1 circle" src="{{imageuser}}" alt="تصویر پروفایل">
+              <div class="icon {{#unless currentUser.emails.[0].verified }} not-verified-user {{/unless}}">
+                <i class="material-icons">keyboard_arrow_down</i>
+              </div>
+            </a>
+          </li>
+          <!-- Dropdown Profile -->
+          <ul id="dropdownprofile" class="dropdown-content">
+            {{#if isInRole 'admin'}}
+            <li>
+              <a href="/users">کاربران</a>
             </li>
-            <!-- Dropdown Profile -->
-            <ul id="dropdownprofile" class="dropdown-content">
-              {{#if isInRole 'admin'}}
-                <li><a href="/users">کاربران</a></li>
-                <li><a href="/manager">مدیریت داستان‌ها</a></li>
-              {{/if}}
-              {{#if isInRole 'management'}}
-              <li><a href="/manager">مدیریت داستان‌ها</a></li>
-              {{/if}}               
-              <li><a href="/setting">{{#unless currentUser.emails.[0].verified }} <i class="material-icons notify-link red-text">email</i> {{/unless}} تنظیمات   </a></li>
-              {{#if currentUser}}
-                <li><a href="/stories/{{currentUser.username}}">داستان‌های من</a></li>
-              {{/if}}
-              <li class="divider"></li>
-              <li id="logout"><a href="#!">خروج</a></li>
-            </ul>
+            <li>
+              <a href="/manager">مدیریت داستان‌ها</a>
+            </li>
+            {{/if}} {{#if isInRole 'management'}}
+            <li>
+              <a href="/manager">مدیریت داستان‌ها</a>
+            </li>
+            {{/if}}
+            <li>
+              <a href="/setting">{{#unless currentUser.emails.[0].verified }}
+                <i class="material-icons notify-link red-text">email</i> {{/unless}} تنظیمات </a>
+            </li>
+            {{#if currentUser}}
+            <li>
+              <a href="/stories/{{currentUser.username}}">داستان‌های من</a>
+            </li>
+            {{/if}}
+            <li class="divider"></li>
+            <li id="logout">
+              <a href="#!">خروج</a>
+            </li>
+          </ul>
           {{else}}
-            <li><a href="/login" class="black-text">ورود/ثبت‌نام</a></li>
+          <li>
+            <a href="/login" class="black-text">ورود/ثبت‌نام</a>
+          </li>
           {{/if}}
         </ul>
         <ul class="right">
           <li>
-            <a href="/our-story" class="black-text our-story hide-on-small-only" >داستان‌ ما</a>
+            <a href="/our-story" class="black-text our-story hide-on-small-only">داستان‌ ما</a>
           </li>
           {{#if currentUser}}
           <li>
-            <a href="/stories/{{currentUser.username}}" class="black-text" >داستان‌های من</a>
+            <a href="/stories/{{currentUser.username}}" class="black-text">داستان‌های من</a>
           </li>
           {{/if}}
           <li>
-            <a href="/" class="black-text" >خانه</a>
+            <a href="/" class="black-text">خانه</a>
           </li>
           <li class="js-menu">
             <a id="menu">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 218 218"><defs><style>.cls-1{fill:#424242;}</style></defs><title>Icons</title><g id="Menu"><path id="ic_menu_24px" data-name="ic menu 24px" class="cls-1" d="M40.56,160.33H151.78a8.56,8.56,0,0,0,8.56-8.56h0a8.56,8.56,0,0,0-8.56-8.56H40.56A8.56,8.56,0,0,0,32,151.78h0A8.56,8.56,0,0,0,40.56,160.33Zm0-42.78H177.44A8.56,8.56,0,0,0,186,109h0a8.56,8.56,0,0,0-8.56-8.56H40.56A8.56,8.56,0,0,0,32,109h0A8.56,8.56,0,0,0,40.56,117.56ZM32,66.22h0a8.56,8.56,0,0,0,8.56,8.56h77.86A8.56,8.56,0,0,0,127,66.22h0a8.56,8.56,0,0,0-8.56-8.56H40.56A8.56,8.56,0,0,0,32,66.22Z"/></g></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 218 218">
+                <defs>
+                  <style>
+                    .cls-1 {
+                      fill: #424242;
+                    }
+                  </style>
+                </defs>
+                <title>Icons</title>
+                <g id="Menu">
+                  <path id="ic_menu_24px" data-name="ic menu 24px" class="cls-1" d="M40.56,160.33H151.78a8.56,8.56,0,0,0,8.56-8.56h0a8.56,8.56,0,0,0-8.56-8.56H40.56A8.56,8.56,0,0,0,32,151.78h0A8.56,8.56,0,0,0,40.56,160.33Zm0-42.78H177.44A8.56,8.56,0,0,0,186,109h0a8.56,8.56,0,0,0-8.56-8.56H40.56A8.56,8.56,0,0,0,32,109h0A8.56,8.56,0,0,0,40.56,117.56ZM32,66.22h0a8.56,8.56,0,0,0,8.56,8.56h77.86A8.56,8.56,0,0,0,127,66.22h0a8.56,8.56,0,0,0-8.56-8.56H40.56A8.56,8.56,0,0,0,32,66.22Z"
+                  />
+                </g>
+              </svg>
             </a>
           </li>
         </ul>
@@ -53,21 +82,50 @@
   </div>
   <!-- fixed button -->
   <div class="fixed-action-btn">
-  {{ #if currentUser.emails.[0].verified }}
+    {{ #if currentUser.emails.[0].verified }}
     <a href="/new" class="btn-floating btn-large">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.33 101.67"><title>Create white</title><g id="Create"><path d="M25,43.82,22.08,55a3,3,0,0,0,.77,2.82,2.93,2.93,0,0,0,2.09.86,3.18,3.18,0,0,0,.74-.09l11.18-2.9a2.92,2.92,0,0,0,1.34-.77L78.84,14.29a2.94,2.94,0,0,0,.87-2.09,3,3,0,0,0-.86-2.09L70.57,1.84a3,3,0,0,0-4.18,0L59.83,8.41h-.49v.48L25.75,42.48A3.11,3.11,0,0,0,25,43.82ZM65.84,10.73l2.64-2.64,4.11,4.11L70,14.84ZM29.06,51.63l1.43-5.55L61.67,14.91,65.78,19,34.6,50.19Z" fill="#fff"/><path d="M76.76,24.09a3,3,0,0,0-3,2.95V94.76H8.52V14.84H47.19a3,3,0,1,0,0-5.9H5.58a3,3,0,0,0-2.95,3V97.72a3,3,0,0,0,3,3H76.76a3,3,0,0,0,2.95-3V27A3,3,0,0,0,76.76,24.09Z" fill="#fff"/></g></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.33 101.67">
+        <title>Create white</title>
+        <g id="Create">
+          <path d="M25,43.82,22.08,55a3,3,0,0,0,.77,2.82,2.93,2.93,0,0,0,2.09.86,3.18,3.18,0,0,0,.74-.09l11.18-2.9a2.92,2.92,0,0,0,1.34-.77L78.84,14.29a2.94,2.94,0,0,0,.87-2.09,3,3,0,0,0-.86-2.09L70.57,1.84a3,3,0,0,0-4.18,0L59.83,8.41h-.49v.48L25.75,42.48A3.11,3.11,0,0,0,25,43.82ZM65.84,10.73l2.64-2.64,4.11,4.11L70,14.84ZM29.06,51.63l1.43-5.55L61.67,14.91,65.78,19,34.6,50.19Z"
+            fill="#fff" />
+          <path d="M76.76,24.09a3,3,0,0,0-3,2.95V94.76H8.52V14.84H47.19a3,3,0,1,0,0-5.9H5.58a3,3,0,0,0-2.95,3V97.72a3,3,0,0,0,3,3H76.76a3,3,0,0,0,2.95-3V27A3,3,0,0,0,76.76,24.09Z"
+            fill="#fff" />
+        </g>
+      </svg>
     </a>
-  {{else}}
+    {{else}}
     <a class="btn-floating btn-large white verifying-user">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.33 101.67"><defs><style>.cls-1{fill:#424242;}</style></defs><title>Icons</title><g id="Create"><path class="cls-1" d="M25,43.82,22.08,55a3,3,0,0,0,.77,2.82,2.94,2.94,0,0,0,2.09.86,3.14,3.14,0,0,0,.74-.09l11.18-2.9a3,3,0,0,0,1.35-.77L78.84,14.29a2.95,2.95,0,0,0,0-4.17L70.57,1.84a3,3,0,0,0-4.18,0L59.83,8.41h-.49v.48L25.75,42.48A3,3,0,0,0,25,43.82ZM65.84,10.73l2.64-2.64,4.11,4.11-2.64,2.64ZM29.06,51.63l1.44-5.55L61.67,14.91,65.78,19,34.6,50.19Z"/><path class="cls-1" d="M76.76,24.09A3,3,0,0,0,73.81,27V94.76H8.52V14.84H47.19a2.95,2.95,0,0,0,0-5.9H5.58a3,3,0,0,0-2.95,2.95V97.72a3,3,0,0,0,2.95,2.95H76.76a3,3,0,0,0,2.95-2.95V27A3,3,0,0,0,76.76,24.09Z"/></g></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.33 101.67">
+        <defs>
+          <style>
+            .cls-1 {
+              fill: #424242;
+            }
+          </style>
+        </defs>
+        <title>Icons</title>
+        <g id="Create">
+          <path class="cls-1" d="M25,43.82,22.08,55a3,3,0,0,0,.77,2.82,2.94,2.94,0,0,0,2.09.86,3.14,3.14,0,0,0,.74-.09l11.18-2.9a3,3,0,0,0,1.35-.77L78.84,14.29a2.95,2.95,0,0,0,0-4.17L70.57,1.84a3,3,0,0,0-4.18,0L59.83,8.41h-.49v.48L25.75,42.48A3,3,0,0,0,25,43.82ZM65.84,10.73l2.64-2.64,4.11,4.11-2.64,2.64ZM29.06,51.63l1.44-5.55L61.67,14.91,65.78,19,34.6,50.19Z"
+          />
+          <path class="cls-1" d="M76.76,24.09A3,3,0,0,0,73.81,27V94.76H8.52V14.84H47.19a2.95,2.95,0,0,0,0-5.9H5.58a3,3,0,0,0-2.95,2.95V97.72a3,3,0,0,0,2.95,2.95H76.76a3,3,0,0,0,2.95-2.95V27A3,3,0,0,0,76.76,24.09Z"
+          />
+        </g>
+      </svg>
     </a>
-  {{/if}}
+    {{/if}}
   </div>
 
   <div class="menu-content rtl">
     <div class="row">
-      <div class="right close-header"> <p><i class="material-icons">close</i></p> </div>
-      <div class="left white"><img src="/images/logo.svg" width="90px" alt="راوی‌شو"></div>
+      <div class="right close-header">
+        <p>
+          <i class="material-icons">close</i>
+        </p>
+      </div>
+      <div class="left white">
+        <img src="/images/logo.svg" width="90px" alt="راوی‌شو">
+      </div>
     </div>
     <div class="row">
       <div class="col s12 m8 l6 offset-m2 offset-l3 top-menu">
@@ -81,7 +139,9 @@
             <div class="menu-content-primary">
 
               <div class="item">
-                <div class="item-link"><a class="">دسته بندی</a></div>
+                <div class="item-link">
+                  <a class="">دسته بندی</a>
+                </div>
                 <div class="item-content">
                   <div class="item-list">
                     <a href="">خانواده</a>
@@ -94,17 +154,28 @@
                     <a href="">سبک زندگی</a>
                     <a href="">زندگی نامه و خاطرات</a>
                   </div>
+                </div>
               </div>
-            </div>
-            <div class="item">
-              <div class="item-link"><a class="">برای شما</a></div>
-            </div>
-            <div class="item">
-              <div class="item-link"><a class="">قوانین و مقررات</a></div>
-            </div>
-            <div class="item">
-              <div class="item-link"><a class="">داستان ما</a></div>
-            </div>
+              <div class="item">
+                <div class="item-link">
+                  <a href="/our-story" class="">داستان ما</a>
+                </div>
+              </div>
+              <div class="item">
+                <div class="item-link">
+                  <a href="/contact-us" class="">ارتباط با ما</a>
+                </div>
+              </div>
+              <div class="item">
+                <div class="item-link">
+                  <a href="/contact-us" class="">گزارش مشکلات</a>
+                </div>
+              </div>
+              <div class="item">
+                <div class="item-link">
+                  <a href="/term" class="">قوانین و مقررات</a>
+                </div>
+              </div>
               <!-- end item -->
             </div>
           </div>

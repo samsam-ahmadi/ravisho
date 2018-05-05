@@ -1283,9 +1283,11 @@ img.img-login{
   background-origin: content-box;
   background-position: center;
   background-size: cover;
-  height: 215px;
+  height: 220px;
   width: 300px;
   padding-top: 15px;
+  background-position: 9px -17px;
+
 }
 .f-our-story p {
   width: 190px;
@@ -1298,6 +1300,7 @@ img.img-login{
   background-image: url('/images/footer/social-bg.svg');
   background-repeat: no-repeat;
   height: 220px;
+  background-position: -9px 9px;
   position: relative;
   width: 250px;
 }
