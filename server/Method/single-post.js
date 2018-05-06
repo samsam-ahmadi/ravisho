@@ -9,5 +9,15 @@ Meteor.methods({
       return false;
     }
     
+  },
+  deleteStory(id){
+    console.log(id);
+    check(id, String);
+    
+    let data = Stories.findOne({'_id':id});
+    if(data._id == this.userId || Roles.userIsInRole(Meteor.userId(), ['admin'])){
+      
+      
+    }
   }
 });

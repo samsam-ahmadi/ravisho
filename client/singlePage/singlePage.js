@@ -66,11 +66,13 @@ Template.singleStoryPage.helpers({
   },
   canEdit() {
     if (FlowRouter.subsReady()) {
-      if (Stories.findOne().created_by == Meteor.userId()  && Meteor.userId() || Roles.userIsInRole(this.userId, ['admin'])) {
+     if(Meteor.userId()){
+      if (Stories.findOne().created_by == Meteor.userId() || Roles.userIsInRole(Meteor.userId(), ['admin']) ) {
         return true;
       } else {
         return false;
       }
+     }
     }
   },
   tags() {
@@ -154,12 +156,30 @@ Template.singleStoryPage.events({
         e.preventPropagation();
     }
     return false; // stop event propagation and browser default event
+  },
+  'click #js-delete-story'(event,template){
+    let idStory = Stories.findOne()._id;
+    console.log('idStory: ', idStory);
+    Meteor.call('deleteStory', id, function(error, success) { 
+      if (error) { 
+        console.log('error', error); 
+      Bert.alert("خطایی رخ داده است", "warning", "growl-top-right")
+        
+      } 
+      if (success) { 
+      Bert.alert("داستان شما با موفقیت حذف شد.", "success", "growl-top-right")
+        
+      } 
+});
   }
 
 });
 
 Template.singleStoryPage.onRendered(function () {
   //fixed sidebar
+  setTimeout(function(){
+    $('.modal').modal();
+  },1000)
   if ($(window).width() > 996) {
     fixedSidebr()
   }

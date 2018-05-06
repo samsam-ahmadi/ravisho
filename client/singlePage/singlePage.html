@@ -148,6 +148,19 @@
                 <a class="edit-story-user" href="/e/{{postItem._id}}/{{postItem.title}}">
                   <i class="material-icons">edit</i>
                 </a>
+                <a class="delete-story-user modal-trigger cursor" data-target="modal-delete">
+                  <i class="material-icons">delete</i>
+                </a>
+
+                <div id="modal-delete" class="modal">
+                    <div class="modal-content rtl">
+                      <p>از حذف داستان خود اطمینان دارید؟</p>
+                    </div>
+                    <div class="modal-footer">
+                      <a id="js-delete-story" class="modal-close waves-effect waves-green btn-flat">حذف کن</a>
+                      <a class="modal-close waves-effect waves-green btn-flat">برگرد</a>
+                    </div>
+                  </div>
                 {{/if}}
                 <img class="responsive-img" src="{{ImageId}}" alt="">
                 <span id="back" class="hide-on-med-and-down">

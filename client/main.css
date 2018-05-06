@@ -644,6 +644,7 @@ nav ul a:hover {
 .article h2{
   margin: 9px 0px;
   font-size: 1.15rem;
+  color: #212121;
 }
 .article p {
   text-align: justify;
@@ -1003,7 +1004,23 @@ new story
   top: -5px;
   right: 4px;
 }
-
+.delete-story-user{
+  position: absolute;
+  top: 15px;
+  left: 65px;
+  padding: 15px;
+  width: 45px;
+  height: 45px;
+  background: white;
+  border-radius: 50%;
+  text-align: center
+}
+.delete-story-user i {
+  position: relative;
+  top: -5px;
+  color:#ef4d4a;
+  right: 4px;
+}
 /*
 *
 *
@@ -1117,10 +1134,7 @@ img.img-login{
 *
 *
 */
-#post-manager-header {
-  max-height:300px;
-  overflow: hidden;
-}
+
 #post-manager-header > img{
   width: 100%;
   height: 100%;
@@ -1311,6 +1325,10 @@ img.img-login{
   float: left;
 }
 
+
+#countStories span {
+  font-size: 1.1rem;
+}
 /*
 *
 *

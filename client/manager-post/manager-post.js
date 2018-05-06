@@ -59,6 +59,7 @@ Template.managerPostPage.events({
   //  change published story to true and chaange tags and saved to collections
   "click #js-submit-story": function(event, template){
     let data = Stories.findOne()
+    console.log('data: ', data);
     // delete unnessery feilds
     delete data.stories;
     delete data.created_at;
