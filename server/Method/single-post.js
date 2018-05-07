@@ -17,7 +17,10 @@ Meteor.methods({
     let data = Stories.findOne({'_id':id});
     if(data._id == this.userId || Roles.userIsInRole(Meteor.userId(), ['admin'])){
       
-      
+      return Stories.remove({"_id":id});
+
+    }else{
+      return false
     }
   }
 });

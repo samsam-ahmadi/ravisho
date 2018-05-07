@@ -160,13 +160,14 @@ Template.singleStoryPage.events({
   'click #js-delete-story'(event,template){
     let idStory = Stories.findOne()._id;
     console.log('idStory: ', idStory);
-    Meteor.call('deleteStory', id, function(error, success) { 
+    Meteor.call('deleteStory', idStory, function(error, success) { 
       if (error) { 
         console.log('error', error); 
       Bert.alert("خطایی رخ داده است", "warning", "growl-top-right")
         
       } 
       if (success) { 
+        FlowRouter.redirect("/")
       Bert.alert("داستان شما با موفقیت حذف شد.", "success", "growl-top-right")
         
       } 
