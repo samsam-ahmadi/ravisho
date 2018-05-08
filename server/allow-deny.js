@@ -57,7 +57,7 @@ ProfileImages.allow({
 });
 
 ProfileImages.deny({
-    insert: function () {
+    insert: function (userId,file) {
         if (!userId) {
             return true;
         }
@@ -109,7 +109,7 @@ Tags.deny({
 
 
 Stories.deny({ 
-  insert: function() { 
+  insert: function(userId,doc) { 
     if (!userId) {
         return true;
     }
@@ -124,8 +124,8 @@ Stories.deny({
 });
 
 Stories.allow({
-    'insert': function (doc) {
-        if (userId == "gHneSfdpCecvmwhBu") {
+    'insert': function (userId,doc) {
+        if (!userId) {
             return false;
         }
         return true;

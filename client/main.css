@@ -1429,10 +1429,12 @@ img.img-login{
 #ourStory .carousel{
   width: 500px;
   margin: auto;
+}
+
+#ourStory .bg-carousel{
   background: url('/images/our-story/bg.svg');
   background-repeat: no-repeat;
 }
-
 #ourStory .social{
   width: 100%;
   margin-top: 10px;

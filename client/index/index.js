@@ -133,11 +133,11 @@ Template.mainIndex.events({
     if (Session.get("created_at") > 0) {
       Session.set("created_at", -1);
       $(".js-sort-created-on a").html(`  <i class="material-icons">keyboard_arrow_down</i>
-        قدیمی‌ها`)
-    } else {
-      $(".js-sort-created-on a").html(`  <i class="material-icons">keyboard_arrow_down</i>
       جدید‌تر‌ها`)
+    } else {
       Session.set("created_at", +1);
+      $(".js-sort-created-on a").html(`  <i class="material-icons">keyboard_arrow_down</i>
+      قدیمی‌ها`)
 
     }
   },
