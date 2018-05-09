@@ -785,6 +785,7 @@ article main section{
 #msg-like{
   margin-top: 50px;
   color: #3284CE;
+  direction: rtl;
 }
 
 .like-post svg{

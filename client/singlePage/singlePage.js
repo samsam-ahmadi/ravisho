@@ -89,19 +89,19 @@ Template.singleStoryPage.helpers({
         switch (count) {
           case 1:
 
-            return { 'like': 'like1', 'msg': 'یک بار دوست داشتید' }
+            return { 'like': 'like1', 'msg': '۱ لایک' }
             break;
           case 2:
-            return { 'like': 'like2', 'msg': 'دو بار دوست داشتید' }
+            return { 'like': 'like2', 'msg': '۲ لایک' }
             break;
           case 3:
-            return { 'like': 'like3', 'msg': 'سه بار دوست داشتید' }
+            return { 'like': 'like3', 'msg': '۳ لایک' }
             break;
           case 4:
-            return { 'like': 'like4', 'msg': 'چهار بار دوست داشتید' }
+            return { 'like': 'like4', 'msg': '۴ لایک' }
             break;
           case 5:
-            return { 'like': 'like5', 'msg': 'خیلی دوست دارید' }
+            return { 'like': 'like5', 'msg': '۵ لایک' }
             break;
           default:
             return;
