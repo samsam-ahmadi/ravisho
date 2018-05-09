@@ -1,6 +1,7 @@
 
 ir =
-
+  "Maximum allowed length": "حداکثر طول مجاز "
+  "Minimum required length": "حداقل طول مجاز "
   add: "افزودن"
   and: "و"
   back: "برگشت"
@@ -81,7 +82,6 @@ ir =
 
     accounts:
 
-      "Minimum required length: 5": "Skal være på mindst 6 tegn"
       "Email already exists.": "ایمیل هم‌اکنون وجود دارد."
       "Email doesn't match the criteria.": "ایمیل با ضوابط تطابق ندارد."
       "Invalid login token": "علامت ورود نامعتبر است"

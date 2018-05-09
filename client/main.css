@@ -461,6 +461,13 @@ nav ul a:hover {
 #js-search-stories-home::placeholder{
   color:#757575;
 }
+input::-webkit-input-placeholder{
+  direction: rtl;  
+}
+input::placeholder{
+  direction: rtl;  
+}
+
 .search-box i{
   left: 0;
   top: 9px;
@@ -1046,7 +1053,7 @@ new story
   display: none;
 }
 .login-frm{
-  z-index: 1000;
+  z-index: 10;
   text-align: center;
 }
 .login-frm , .img-login{
@@ -1102,9 +1109,9 @@ new story
   margin-bottom: 15px;
 }
 img.img-login{
-  z-index: 0;
-  right: 134px;
-  top: 10px;
+  z-index: -3;
+  left: -100px;
+  bottom: -70px;
   -webkit-transform: rotate(3deg );
           transform: rotate(3deg );
 }
@@ -1138,7 +1145,7 @@ img.img-login{
 
 #post-manager-header > img{
   width: 100%;
-  height: 100%;
+  height: 250px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -1495,5 +1502,5 @@ img.img-login{
 }
 
 .g-recaptcha{
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 }
