@@ -38,6 +38,17 @@ html{
 body{
   background: #fafafa;
 }
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]){
+  border-bottom: 1px solid #0188d1;
+  box-shadow: 0 1px 0 0 #0188d1;
+}
+input:not([type]):focus:not([readonly]) + label, input[type=text]:not(.browser-default):focus:not([readonly]) + label, input[type=password]:not(.browser-default):focus:not([readonly]) + label, input[type=email]:not(.browser-default):focus:not([readonly]) + label, input[type=url]:not(.browser-default):focus:not([readonly]) + label, input[type=time]:not(.browser-default):focus:not([readonly]) + label, input[type=date]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, input[type=tel]:not(.browser-default):focus:not([readonly]) + label, input[type=number]:not(.browser-default):focus:not([readonly]) + label, input[type=search]:not(.browser-default):focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label{
+  color: #0188d1;
+}
+[type="checkbox"].filled-in:checked + label:after{
+  border: 2px solid #0188d1;
+  background-color: #0188d1;
+}
 .pin-top {
   position: relative;
 }
@@ -140,6 +151,7 @@ nav li a#menu {
   width: 56px;
   height: 56px;
   margin-right: 20px;
+  transform: rotate( 180deg );
   padding:12px;
   border-radius: 50%;
 }
@@ -147,6 +159,9 @@ nav li a#menu svg{
   position: relative;
   bottom: 3px;
   left: 2px;
+}
+.nav-wrapper .left .black-text{
+  margin-right: 15px;
 }
 nav li a#create {
   width: 55px;
@@ -1361,8 +1376,8 @@ img.img-login{
   text-align: center;
   /* background: red; */
   display: inline-block;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 #ourStory h4{
   font-size: 1.4rem;
@@ -1384,9 +1399,9 @@ img.img-login{
 }
 
 #ourStory .left-pos {
-  opacity: .8;
   left: 0em;
   top: 35px;
+  opacity: .8;
   z-index: 1000;
   -webkit-transform: scale(.85);
   transform: scale(.85);
