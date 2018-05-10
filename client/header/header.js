@@ -82,7 +82,11 @@ Template.header.events({
       $(".dropdown-button").dropdown();
   },
   "click .verifying-user"(events,template){
-    Bert.alert("لطفا قبل ارسال داستان ایمیل خود را تایید کنید. برای درخواست مجدد تاییدیه ایمیل به تنظیمات کاربری برید.","warning","growl-top-right")
+    if(Meteor.userId()){
+      Bert.alert("لطفا قبل ارسال داستان ایمیل خود را تایید کنید. برای درخواست مجدد تاییدیه ایمیل به تنظیمات کاربری برید.","warning","growl-top-right")
+    }else{
+      Bert.alert("برای ارسال داستان باید وارد سایت شوید.","warning","growl-top-right")
+    }
   }
 
 });
