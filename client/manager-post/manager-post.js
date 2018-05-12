@@ -67,6 +67,7 @@ Template.managerPostPage.events({
     
     Meteor.call("submitStory",data, function(error, result){
       if(error){
+        console.log('error: ', error);
         
       }
       if(result){
