@@ -20,7 +20,6 @@ Images.allow({
 
 Images.deny({
     insert: function (userId, file) {
-        // if (Meteor.users.findOne({"_id":this.userId}).emails[0].verified) {
         if (!userId) {
             return true;
         }
@@ -39,10 +38,10 @@ Images.deny({
 
 ProfileImages.allow({
     'insert': function (userId, project) {
-        if (userId == "gHneSfdpCecvmwhBu") {
-            return false;
+        if (!userId) {
+            return true;
         }
-        return true;
+        return false;
     },
     'remove': function (userId, project) {
         return false;
@@ -117,14 +116,7 @@ Stories.deny({
   }, 
   update: function(userId,doc) { 
       return true;
-  }, 
-//   update: function(userId,doc) { 
-//       if(userId == doc.created_by){
-//           return false; 
-//       }else{
-//           return true;
-//       }
-//   }, 
+  },
   remove: function(userId,doc) { 
     if(userId == doc.created_by){
         return false; 
@@ -144,22 +136,6 @@ Stories.allow({
     'remove': function (userId,doc) {
       return userId === doc.created_by;
     },
-    // 'update': function (userId,doc, fields, modifier) {
-    //     if(userId !== doc.created_by){
-    //         return false;
-    //     }
-    //     var willModify = function (field) {
-    //         return _.contains(fields, field);
-    //       }
-    //     // if(arrayEq(fields, ['created_by', 'email_user_story', 'show_manager'])){
-    //     //     return false;
-    //     // }
-    //     if(willModify("draft")){
-    //         return false
-    //     }
-
-    //   return userId === doc.created_by;
-    // },
     'update': function (userId,doc, fields, modifier) {
        return false;
     }
