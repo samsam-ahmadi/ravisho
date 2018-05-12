@@ -46,15 +46,25 @@ $('ul, span').hover(
     
     //moving carousel backwards
     if(direction == 'counter-clockwise') {
-      var leftitem = $('.left-pos').attr('id') - 1;
+      var leftitem = $('.left-pos').attr('id');
       if(leftitem == 0) {
+        //with alireza
+        // leftitem = itemCount -1;
         leftitem = itemCount;
       }
-      
-      $('.right-pos').removeClass('right-pos').addClass('back-pos');
+      console.log("right");
+
+      // with alireza
+      // $('.right-pos').removeClass('right-pos').addClass('back-pos');
+      // $('.main-pos').removeClass('main-pos').addClass('right-pos');
+      // $('.left-pos').removeClass('left-pos').addClass('main-pos');
+      // $('#'+leftitem+'').removeClass('back-pos').addClass('left-pos');
+
+
+      $('.right-pos').removeClass('right-pos').addClass('left-pos');
       $('.main-pos').removeClass('main-pos').addClass('right-pos');
-      $('.left-pos').removeClass('left-pos').addClass('main-pos');
-      $('#'+leftitem+'').removeClass('back-pos').addClass('left-pos');
+      $('#'+leftitem+'').removeClass('left-pos').addClass('main-pos');
+      // $('.left-pos').removeClass('left-pos').addClass('main-pos');
       
       startItem--;
       if(startItem < 1) {
@@ -91,8 +101,8 @@ $('ul, span').hover(
     
      $('#'+ startItem +'').removeClass('main-pos').addClass('left-pos');
      $('#'+ (startItem+pos()) +'').removeClass('right-pos').addClass('main-pos');
-     $('#'+ (startItem+pos()) +'').removeClass('back-pos').addClass('right-pos');
-     $('#'+ pos('leftposition') +'').removeClass('left-pos').addClass('back-pos');
+     $('#'+ (startItem+pos()) +'').removeClass('left-pos').addClass('right-pos');
+    //  $('#'+ pos('leftposition') +'').removeClass('left-pos').addClass('le-pos');
   
       startItem++;
       position=0;
