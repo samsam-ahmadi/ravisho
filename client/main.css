@@ -146,6 +146,9 @@ h1{
 .btn-floating:hover{
   background-color: #0378b7;
 }
+.btn:focus, .btn-large:focus, .btn-floating:focus{
+  background-color: #0378b7;
+}
 nav {
   -webkit-box-shadow: unset;
           box-shadow: unset;

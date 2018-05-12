@@ -5,12 +5,13 @@ Meteor.methods({
          delete data.$set.likes;
          delete data.$set.created_at;
          delete data.$set.email_user_story;
-         delete data.$set.created_by;
          delete data.$set.content_problems;
          data.$set.best_stories =false;
          data.$set.show_manager =true;
          data.$set.published =false;
          let id = data.$set.id;
+         let idUser = data.$set.created_by;
+         delete data.$set.created_by;
          delete data.$set.id;
          
          
@@ -32,7 +33,8 @@ Meteor.methods({
                 stories: Match.Optional(String),
             }
         )
-
+        let updateCount = Meteor.users.update({_id:idUser},{$inc:{countStories:-1}})
+         
          return   Stories.update({"_id":id},data);
     } 
 });
