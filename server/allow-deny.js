@@ -109,17 +109,28 @@ Tags.deny({
 
 
 Stories.deny({ 
-  insert: function(userId,doc) { 
+  insert: function(userId) { 
     if (!userId) {
         return true;
     }
     return false;
   }, 
-  update: function() { 
-    return false; 
+  update: function(userId,doc) { 
+      return true;
   }, 
-  remove: function() { 
-    return true; 
+//   update: function(userId,doc) { 
+//       if(userId == doc.created_by){
+//           return false; 
+//       }else{
+//           return true;
+//       }
+//   }, 
+  remove: function(userId,doc) { 
+    if(userId == doc.created_by){
+        return false; 
+    }else{
+        return true;
+    } 
   } 
 });
 
@@ -133,9 +144,24 @@ Stories.allow({
     'remove': function (userId,doc) {
       return userId === doc.created_by;
     },
-    'update': function () {
-        
-      return userId === doc.created_by;
+    // 'update': function (userId,doc, fields, modifier) {
+    //     if(userId !== doc.created_by){
+    //         return false;
+    //     }
+    //     var willModify = function (field) {
+    //         return _.contains(fields, field);
+    //       }
+    //     // if(arrayEq(fields, ['created_by', 'email_user_story', 'show_manager'])){
+    //     //     return false;
+    //     // }
+    //     if(willModify("draft")){
+    //         return false
+    //     }
+
+    //   return userId === doc.created_by;
+    // },
+    'update': function (userId,doc, fields, modifier) {
+       return false;
     }
   
   });

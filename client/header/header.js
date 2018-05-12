@@ -82,13 +82,30 @@ Template.header.events({
       $(".dropdown-button").dropdown();
   },
   "click .verifying-user"(events,template){
-    if(Meteor.userId()){
+    if(!Meteor.userId()){
       Bert.alert("لطفا قبل ارسال داستان ایمیل خود را تایید کنید. برای درخواست مجدد تاییدیه ایمیل به تنظیمات کاربری برید.","warning","growl-top-right")
     }else{
       Bert.alert("برای ارسال داستان باید وارد سایت شوید.","warning","growl-top-right")
     }
+  },
+  "click .menu-item-des a"(events,template){
+    let tl = new TimelineMax();
+    tl
+    .staggerTo('.menu-content-primary .item',0.2,{opacity:0,y:0},0.1)
+    .to('.menu-content', 0.3, { opacity:0} )
+    .to('.menu-content', 0.1, { display:'none'} );
+    FlowRouter.redirect("/");
+    Session.set('category', events.currentTarget.textContent);
+  },
+  "click .menu-content-primary .item-content a"(events,template){
+    let tl = new TimelineMax();
+    tl
+    .staggerTo('.menu-content-primary .item',0.2,{opacity:0,y:0},0.1)
+    .to('.menu-content', 0.3, { opacity:0} )
+    .to('.menu-content', 0.1, { display:'none'} );
+    FlowRouter.redirect("/");
+    Session.set('category', events.currentTarget.textContent);
   }
-
 });
 
 Template.header.rendered = function(){

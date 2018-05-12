@@ -65,18 +65,35 @@ var hooksObject = {
             // get tags from input page 
             let tagsStory = $('#tags').val();
             doc.$set.tags = tagsStory;
+            doc.$set.id  = Stories.findOne()._id
             console.log('doc: ', doc);
-            if(Roles.userIsInRole(Meteor.userId(), ['blocked'])){
-                Bert.alert("شما اجازه ساختن داستان جدید را ندارید.",'danger', 'growl-top-right')
-                redirect('/');      
+
+            if(Roles.userIsInRole(Meteor.userId(), ['blocked']) || doc.$set.created_by != Meteor.userId() ){
+                Bert.alert("شما اجازه تغییر داستان را ندارید.",'danger', 'growl-top-right')
+                // FlowRouter.redirect('/');      
                 return false;
               }
-            return doc;
-        }
-    },
-    after: {
-        update: function () {
-            FlowRouter.redirect("/stories/"+Meteor.user().username)
+
+              Meteor.call('editStory', doc, function(error, success) { 
+                if (error) { 
+                    console.log('error', error); 
+                    return false;
+                } 
+                if (success) { 
+                    console.log('success: ', success);
+                    FlowRouter.redirect("/stories/"+Meteor.user().username)
+                    return false;
+                } 
+            });
+
+
+
+
+
+
+
+
+
         }
     }
 };

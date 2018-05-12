@@ -57,8 +57,10 @@ Template.singleStoryPage.helpers({
   },
   jalali(date) {
     try {
-      moment.loadPersian({ dialect: 'persian-modern' })
-      return moment(date).format('jD jMMMM jYY')
+      if (FlowRouter.subsReady()) {
+        moment.loadPersian({ dialect: 'persian-modern' })
+        return moment(date).format('jD jMMMM jYY')
+      }
 
     } catch (e) {
       
@@ -114,6 +116,9 @@ Template.singleStoryPage.helpers({
 
 
 Template.singleStoryPage.onCreated(function () {
+  if ($(window).width() > 996) {
+    fixedSidebr()
+  }
 })
 
 Template.singleStoryPage.events({
@@ -197,23 +202,30 @@ Template.singleStoryPage.onRendered(function () {
 function fixedSidebr() {
   setTimeout(function () {
     let $sidebar = $(".sidebar-single-page"),
+      $back = $("#back"),
       $window = $(window),
       offset = $sidebar.offset(),
       offsetFooter = $('footer').offset().top;
-      if($(".sidebar-single-page").length >0){
-        $window.scroll(function () {
+      $window.scroll(function () {
+        if($(".sidebar-single-page").length >0){
           
           if ($window.scrollTop() > offset.top && $window.scrollTop() < parseInt($('.main-content').height()) - parseInt($('.main-content').offset().top -parseInt($('.share-it').height()) ) -parseInt(120) ) {
             $sidebar.css({
+              marginTop: $window.scrollTop() - offset.top+150
+            });
+            $back.css({
               marginTop: $window.scrollTop() - offset.top+150
             });
           } else {
             $sidebar.css({
             marginTop: 0
             });
+            $back.css({
+              marginTop: 0
+              });
           }
+        }
         });
-      }
   }, 1000)
 
 }

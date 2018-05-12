@@ -1,6 +1,6 @@
 Accounts.emailTemplates.siteName = "ravisho.com";
 
-Accounts.emailTemplates.from = "ravisho info@ravisho.ir";
+Accounts.emailTemplates.from = "ravisho info@ravisho.com";
 
 Accounts.emailTemplates.verifyEmail.subject = function (user) {
     return "راوی‌شو - فعالسازی حساب کاربری";

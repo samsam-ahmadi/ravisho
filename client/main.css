@@ -88,7 +88,9 @@ h1{
   font-size: 1.5rem;
 
 }
-
+.img-404{
+  margin-top: 100px;
+}
 /*
 *
 *
@@ -164,8 +166,8 @@ nav li a#menu {
 }
 nav li a#menu svg{
   position: relative;
-  bottom: 3px;
-  left: 2px;
+  bottom: 5px;
+  left: -8px;
 }
 .nav-wrapper .left .black-text{
   margin-left: 15px;
@@ -668,7 +670,7 @@ input::placeholder{
   color: white;
 }
 .article .card .card-content{
-  padding:13px 0px;
+  padding:13px 10px;
 }
 .article h2{
   margin: 9px 0px;
