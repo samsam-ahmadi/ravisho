@@ -16,7 +16,7 @@ Meteor.methods({
     
     let data = Stories.findOne({'_id':id});
     if(data._id == this.userId || Roles.userIsInRole(Meteor.userId(), ['admin'])){
-      
+      Meteor.users.update({ _id: data.created_by }, { $inc: { countStories: -1 } })
       return Stories.remove({"_id":id});
 
     }else{

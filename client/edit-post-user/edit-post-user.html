@@ -9,25 +9,26 @@
                         <div class="card-content">
                             <div class="row">
                                 <div class="col s12 right-align sidebar-profile">
-                                    <div class="row">
+                                    <div class="row no-margin">
                                         {{> afQuickField name='pictures' }}
                                     </div>
-                                    <div class="row item rtl">
+                                    <div class="row item rtl no-margin">
                                         {{> afQuickField name='category_stories' }}
                                     </div>
                                     <div class="row hide">
-                                        {{> afQuickField name='created_by' }} {{> afQuickField name='email_user_story' }} {{> afQuickField name='show_manager' }} {{>
-                                        afQuickField name='published' }} {{> afQuickField name='created_at' }}
+                                        {{> afQuickField name='created_by' }} {{> afQuickField name='created_at' }}
+                                    </div>
+                                    <div class="show-tags rtl">
+                      
                                     </div>
                                     <div class="row item rtl">
                                         <div class="input-field col s12">
-                                            <input id="tags" type="text" class="validate">
-                                            <label for="tags">کلید واژه‌های داستان را با(،)جدا کنید</label>
+                                            <input id="tags" name="tags" type="text" class="validate">
+                                            <label for="tags">تگ‌های خود را با علامت # از هم جدا کنید.</label>
                                         </div>
                                     </div>
-                                    <div class="row item rtl">
+                                    <div class="row item rtl no-margin">
                                         {{> afQuickField name='unknown' }}
-                                        {{> afQuickField name='show_manager' }}
                                     </div>
                                     <div class="row item rtl no-margin">
                                         {{> afQuickField name='draft' }}

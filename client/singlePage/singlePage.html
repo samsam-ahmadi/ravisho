@@ -30,8 +30,8 @@
                   </div>
                   <div class="row item rtl">
                     <p class="">تگ‌های داستان:</p>
-                    {{#each tags}}
-                    <a>{{this}} ,</a>
+                    {{#each postItem.tags}}
+                    <a> #{{this}}</a>
                     {{/each}}
                   </div>
                   {{#if StoriesUser.unknown}}

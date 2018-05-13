@@ -8,8 +8,6 @@ Meteor.startup(() => {
     //         object.remove({});
     //         console.log("remove all done")
     //     }
-
-
     // }
 
     if (Meteor.users.find().fetch().length < 5) {

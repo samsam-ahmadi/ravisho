@@ -179,3 +179,8 @@ Meteor.publish("images_home", function (arr) {
 Meteor.publish('getusersImageHome', function (arr) {
   return Meteor.users.find({ "_id": { $in: arr } }, { fields: { username: 1, profile: 1 } })
 });
+
+
+Meteor.publish('tags', function(argument) {
+  return Tags.find();
+});

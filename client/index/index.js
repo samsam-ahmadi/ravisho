@@ -1,4 +1,6 @@
 import moment from 'moment-jalaali'
+
+Meteor.subscribe('taags');
 Template.mainIndex.helpers({
   listStories: function () {
     moment.locale('fa');

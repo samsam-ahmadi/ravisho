@@ -22,13 +22,12 @@ Meteor.methods({
             {
                 title: Match.Optional(String),
                 category_stories: Match.Optional(String),
-                tags: Match.Optional(String),
+                tags: Match.Optional(Array),
                 unknown: Match.Optional(Boolean),
                 show_manager: Match.Optional(Boolean),
                 published: Match.Optional(Boolean),
                 best_stories: Match.Optional(Boolean),
                 draft: Match.Optional(Boolean),
-                tags: Match.Optional(String),
                 pictures: Match.Optional(String),
                 stories: Match.Optional(String),
             }

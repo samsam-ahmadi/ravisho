@@ -13,7 +13,7 @@ Template.updateStory.onCreated(function () {
     let self = this;
     if (Meteor.userId()) {
         self.autorun(function () {
-            
+
             self.subscribe("editPostPageSub", FlowRouter.getParam('_id'));
             self.subscribe("editImagePageSub", FlowRouter.getParam('_id'));
         })
@@ -45,9 +45,23 @@ function runSummernote() {
         }
     });
     let story = Stories.findOne();
-    
+
     $('.editor').summernote('code', story.stories + ' ')
-    $('#tags').val(story.tags)
+    //show taags in input 
+    // split #
+    let  text = ""
+    tagsInput = story.tags;
+    // show in the page
+    $(".show-tags").html("");
+    tagsInput.reverse().map((item) => {
+        let tag = `
+      <p class="blue-text rtl"> #${item} </p>
+      `
+        $(".show-tags").append(tag);
+
+        text += "#"+item
+    })
+    $('#tags').val(text)
     $('#tags + label').addClass('active')
 }
 
@@ -63,27 +77,44 @@ var hooksObject = {
             doc.$set.show_manager = true;
             delete doc.$unset;
             // get tags from input page 
-            let tagsStory = $('#tags').val();
-            doc.$set.tags = tagsStory;
-            doc.$set.id  = Stories.findOne()._id
+            let tagsInput = $('#tags').val();
+            let tagsArray = [];
+            // split #
+            tagsInput = tagsInput.split('#');
+            tagsInput.shift();
+            //return replaced texxt with _ 
+            tagsArray = tagsInput.map((item) => {
+                item = item.replace(/\s+/g, '_');
+                // console.log('item: ', item);
+    
+                if (item[item.length - 1] == "_") {
+                    item = item.slice(0, -1)
+                }
+                return item;
+            })
+
+
+
+            doc.$set.tags = tagsArray;
+            doc.$set.id = Stories.findOne()._id
             console.log('doc: ', doc);
 
-            if(Roles.userIsInRole(Meteor.userId(), ['blocked']) || doc.$set.created_by != Meteor.userId() ){
-                Bert.alert("شما اجازه تغییر داستان را ندارید.",'danger', 'growl-top-right')
+            if (Roles.userIsInRole(Meteor.userId(), ['blocked']) || doc.$set.created_by != Meteor.userId()) {
+                Bert.alert("شما اجازه تغییر داستان را ندارید.", 'danger', 'growl-top-right')
                 // FlowRouter.redirect('/');      
                 return false;
-              }
+            }
 
-              Meteor.call('editStory', doc, function(error, success) { 
-                if (error) { 
-                    console.log('error', error); 
+            Meteor.call('editStory', doc, function (error, success) {
+                if (error) {
+                    console.log('error', error);
                     return false;
-                } 
-                if (success) { 
+                }
+                if (success) {
                     console.log('success: ', success);
-                    FlowRouter.redirect("/stories/"+Meteor.user().username)
+                    FlowRouter.redirect("/stories/" + Meteor.user().username)
                     return false;
-                } 
+                }
             });
 
 
@@ -101,27 +132,53 @@ AutoForm.hooks({
     updatestory: hooksObject
 });
 
-Template.updateStory.events({ 
+Template.updateStory.events({
     "click #back"(e, template) {
         var defaultLocation = "https://www.ravisho.com";
         var oldHash = window.location.hash;
         history.back(); // Try to go back
         var newHash = window.location.hash;
         if (
-          newHash === oldHash &&
-          (typeof (document.referrer) !== "string" || document.referrer === "")
+            newHash === oldHash &&
+            (typeof (document.referrer) !== "string" || document.referrer === "")
         ) {
-          window.setTimeout(function () {
-            // redirect to default location
-            window.location.href = defaultLocation;
-          }, 1000); // set timeout in ms
+            window.setTimeout(function () {
+                // redirect to default location
+                window.location.href = defaultLocation;
+            }, 1000); // set timeout in ms
         }
         if (e) {
-          if (e.preventDefault)
-            e.preventDefault();
-          if (e.preventPropagation)
-            e.preventPropagation();
+            if (e.preventDefault)
+                e.preventDefault();
+            if (e.preventPropagation)
+                e.preventPropagation();
         }
         return false; // stop event propagation and browser default event
-      }
+    },
+    "keyup #tags"(events, template) {
+        let tagsInput = event.target.value;
+        let tagsArray = [];
+        // split #
+        tagsInput = tagsInput.split('#');
+        tagsInput.shift();
+        //return replaced texxt with _ 
+        tagsArray = tagsInput.map((item) => {
+            item = item.replace(/\s+/g, '_');
+            // console.log('item: ', item);
+
+            if (item[item.length - 1] == "_") {
+                item = item.slice(0, -1)
+            }
+            return item;
+        })
+
+        // show in the page
+        $(".show-tags").html("");
+        tagsArray.map((item) => {
+            let tag = `
+          <p class="blue-text rtl"> #${item} </p>
+          `
+            $(".show-tags").append(tag);
+        })
+    }
 });
