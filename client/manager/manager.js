@@ -31,7 +31,7 @@ Template.managerPage.helpers({
           return Meteor.users.findOne({"_id":id}).profile.picture
         }
       }else{
-        return "/images/logo.svg"
+        return "/images/default/unknown.png"
       }
     } 
   }

@@ -29,7 +29,7 @@ Template.managerPostPage.helpers({
         let data = Stories.findOne();
         if(data.unknown){
 
-          return {"profile":{"picture":"/images/logo.jpg"},"username":"(راوی شو (ناشناس","unknown":true};
+          return {"profile":{"picture":"/images/default/unknown.png"},"username":"(راوی شو (ناشناس","unknown":true};
           // sub ready
         }else{
           let sub =  Meteor.subscribe("managerUserPageSub",data.created_by);
@@ -79,7 +79,8 @@ Template.managerPostPage.events({
   },
   "click #js-submit-best-story": function(event, template){
     let data = Stories.findOne()
-
+    delete data.stories;
+    delete data.created_at;
     Meteor.call("submitBestStory",data, function(error, result){
       if(error){
         

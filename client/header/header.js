@@ -5,7 +5,7 @@ Template.header.helpers({
          if(src){
            return src;
          }else{
-           return '/images/logo.svg'
+           return '/images/default/profile.png'
          }
     } catch (e) {
       

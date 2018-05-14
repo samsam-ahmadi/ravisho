@@ -5,16 +5,16 @@ Template.singleStoryPage.helpers({
       if (Stories.find().count() > 0) {
         let story = Stories.findOne();
         DocHead.removeDocHeadAddedTags()
-        DocHead.setTitle(story.title);
-        DocHead.addMeta({ property: 'description', content: story.stories.substring(0, 170) });
+        DocHead.setTitle(" راوی شو -  " +story.title );
+        DocHead.addMeta({ property: 'description', content: story.stories.substring(0, 200) });
         DocHead.addMeta({ property: 'og:site_name', content: 'ravisho' });
         DocHead.addMeta({ property: 'og:title', content: story.title });
         DocHead.addMeta({ property: 'og:type', content: 'website' });
-        DocHead.addMeta({ property: 'og:description', content: story.stories.substring(0, 170) });
-        DocHead.addMeta({ property: 'twitter:card', content: story.stories.substring(0, 170) });
-        DocHead.addMeta({ property: 'twitter:title', content: story.title });
+        DocHead.addMeta({ property: 'og:description', content: story.stories.substring(0, 200) });
+        DocHead.addMeta({ property: 'twitter:card', content: story.stories.substring(0, 200) });
+        DocHead.addMeta({ property: 'twitter:title', content: " راوی شو -  " +story.title });
         DocHead.addMeta({ property: 'twitter:url', content: 'ravisho.com' + FlowRouter.current().path });
-        DocHead.addMeta({ property: 'twitter:description', content: story.stories.substring(0, 170) });
+        DocHead.addMeta({ property: 'twitter:description', content: story.stories.substring(0, 2000) });
         return Stories.findOne();
       } else {
         
@@ -43,7 +43,7 @@ Template.singleStoryPage.helpers({
         // if user publishe story in unknown
         let sub = Meteor.subscribe('singleUserPageSub', story.created_by);
         if (Stories.findOne().unknown) {
-          return { "profile": { "picture": "/images/logo.jpg" }, "username": "(راوی شو (ناشناس" };
+          return { "profile": { "picture": "/images/default/unknown.png" }, "username": "(راوی شو (ناشناس" };
           // sub ready
         } else {
           if (sub.ready()) {

@@ -1531,9 +1531,12 @@ img.img-login{
   background-image: url("/images/submit-form.svg");
   background-size:90px; 
   width: 100px;
+  margin-top: 60px;
   height: 70px;
 }
 
 .g-recaptcha{
   margin-bottom: 20px;
 }
+
+

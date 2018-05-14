@@ -10,6 +10,7 @@ Meteor.methods({
         title: Match.Optional(String),
         pictures: Match.Optional(String),
         created_by: Match.Optional(String),
+        unknown: Match.Optional(Boolean),
       }
     )
 
@@ -67,7 +68,6 @@ Meteor.methods({
         title: Match.Optional(String),
         pictures: Match.Optional(String),
         created_by: Match.Optional(String),
-        stories: Match.Optional(String),
       }
     )
     if (Roles.userIsInRole(this.userId, ['admin', 'management'])) {

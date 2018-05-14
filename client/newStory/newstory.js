@@ -47,9 +47,10 @@ var hooksObject = {
       })
       doc.tags= tagsArray;
 
-
+      if(htmlStories.length <151){
+        Bert.alert("داستان شما باید حداقل ۱۵۰ کارکتر داشته باشد.", 'danger', 'growl-top-right')
+      }
       doc.stories = htmlStories;
-      console.log('doc: ', doc);
       // get tags from input page 
       if (htmlStories == "<p><br></p>") {
         return false;
