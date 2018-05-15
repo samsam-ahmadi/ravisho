@@ -32,8 +32,7 @@ Meteor.methods({
                 stories: Match.Optional(String),
             }
         )
-        let updateCount = Meteor.users.update({_id:idUser},{$inc:{countStories:-1}})
-         
+        let updateCount = Meteor.users.update({ _id: idUser }, { $set: { countStories: Stories.find({"_id":idUser}).count()} })
          return   Stories.update({"_id":id},data);
     } 
 });

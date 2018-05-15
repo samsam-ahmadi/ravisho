@@ -1,48 +1,48 @@
 <template name="newStory">
-  <main>
+  <main id="new">
     {{#autoForm collection="Stories" id="newstory" type="insert" autocomplete="off"}}
     <div class="container">
       <div class="row">
+
         <div class="col s12 m12 l3">
           <div class="card no-margin">
 
-              <div class="card-content">
-                <div class="row">
-                  <div class="col s12 right-align sidebar-profile">
-                    <div class="row no-margin">
-                      {{> afQuickField name='pictures' }}
-                    </div>
-                    <div class="row item rtl no-margin">
-                      {{> afQuickField name='category_stories' }}
-                    </div>
-                    <div class="row hide">
-                      {{> afQuickField name='created_by' }}
-                      {{> afQuickField name='created_at' }}
-                    </div>
-                    <div class="show-tags rtl">
-                      
-                    </div>
-                    <div class="row item rtl">
-                        {{> afQuickField name='tags' autocomplete='off' }}
-                    </div>
-                    <div class="row item rtl">
-                      {{> afQuickField name='unknown' }}
-                    </div>
-                    <div class="row item rtl no-margin">
-                      {{> afQuickField name='draft' }}
-                    </div>
-                    <div class="submit-post btn-submit-story">
-                      <button type="submit" class="btn btn-primary "></button>
-                    </div>
+            <div class="card-content">
+              <div class="row">
+                <div class="col s12 right-align sidebar-profile">
+                  <div class="row no-margin">
+                    {{> afQuickField name='pictures' }}
+                  </div>
+                  <div class="row item rtl no-margin">
+                    {{> afQuickField name='category_stories' }}
+                  </div>
+                  <div class="row hide">
+                    {{> afQuickField name='created_by' }} {{> afQuickField name='created_at' }}
+                  </div>
+                  <div class="show-tags rtl">
+
+                  </div>
+                  <div class="row item rtl no-margin">
+                    {{> afQuickField name='tags' autocomplete='off' }}
+                  </div>
+                  <div class="row item rtl">
+                    {{> afQuickField name='unknown' }}
+                  </div>
+                  <div class="row item rtl">
+                    {{> afQuickField name='draft' }}
+                  </div>
+                  <div class="submit-post btn-submit-story">
+                    <button type="submit" class="btn btn-primary "></button>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
         <!-- end sidebar profile -->
         <div class="col s12 m12 l9 rtl">
           <div class="row">
-            <article class="col z-depth-1 s12 single-post white new-story" >
+            <article class="col z-depth-1 s12 single-post white new-story">
               <main>
                 <div class="row"></div>
                 <a id="back" class="hide-on-med-and-down">
@@ -50,11 +50,11 @@
                   <p>بازگشت</p>
                 </a>
                 <div class="col s12 m8 l6 right">
-                    {{> afQuickField name='title' }}
+                  {{> afQuickField name='title' }}
                 </div>
               </main>
             </article>
-            <article class="col z-depth-1 s12 single-post white new-story no-padding" >
+            <article class="col z-depth-1 s12 single-post white new-story no-padding">
               <main>
                 <section class="rtl story-description">
                   <div class="row"></div>
@@ -74,13 +74,13 @@
 
 <template name="afFileSelectFileBtnTemplateFixed">
   <span class="btn btn-default af-select-file js-af-select-file">
-    <p>  تصویر داستان</p>
+    <p> تصویر داستان</p>
     <input type="file" class="js-file" accept="{{accept}}">
     <p>اپلود</p>
   </span>
 </template>
 <template name="afFileRemoveFileBtnTemplateFixed">
   <span class="af-select-file js-af-remove-file">
-  <i class="material-icons">clear</i>
+    <i class="material-icons">clear</i>
   </span>
 </template>

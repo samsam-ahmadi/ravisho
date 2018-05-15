@@ -5,19 +5,19 @@ Template.singleStoryPage.helpers({
       if (Stories.find().count() > 0) {
         let story = Stories.findOne();
         DocHead.removeDocHeadAddedTags()
-        DocHead.setTitle(" راوی شو -  " +story.title );
+        DocHead.setTitle(" راوی شو -  " + story.title);
         DocHead.addMeta({ property: 'description', content: story.stories.substring(0, 200) });
         DocHead.addMeta({ property: 'og:site_name', content: 'ravisho' });
         DocHead.addMeta({ property: 'og:title', content: story.title });
         DocHead.addMeta({ property: 'og:type', content: 'website' });
         DocHead.addMeta({ property: 'og:description', content: story.stories.substring(0, 200) });
         DocHead.addMeta({ property: 'twitter:card', content: story.stories.substring(0, 200) });
-        DocHead.addMeta({ property: 'twitter:title', content: " راوی شو -  " +story.title });
+        DocHead.addMeta({ property: 'twitter:title', content: " راوی شو -  " + story.title });
         DocHead.addMeta({ property: 'twitter:url', content: 'ravisho.com' + FlowRouter.current().path });
         DocHead.addMeta({ property: 'twitter:description', content: story.stories.substring(0, 2000) });
         return Stories.findOne();
       } else {
-        
+
         FlowRouter.redirect("/")
       }
     }
@@ -33,7 +33,7 @@ Template.singleStoryPage.helpers({
         }
       }
     } catch (e) {
-      
+
     }
   },
   StoriesUser() {
@@ -49,10 +49,11 @@ Template.singleStoryPage.helpers({
           let sub =  Meteor.subscribe("managerUserPageSub",data.created_by);
           if(sub.ready()){
             let result =  Meteor.users.findOne({"_id":data.created_by});
-            if(result.profile.pictures){
+            
+            if(result.profile.picture){
               return result;
             }else{
-          return {"profile":{"pictures":'/images/default/profile.png'},"username":result.username,"countStories":result.countStories};
+          return {"profile":{"picture":'/images/default/profile.png'},"username":result.username,"countStories":result.countStories};
               
             }
           }
@@ -70,18 +71,18 @@ Template.singleStoryPage.helpers({
       }
 
     } catch (e) {
-      
+
     }
   },
   canEdit() {
     if (FlowRouter.subsReady()) {
-     if(Meteor.userId()){
-      if (Stories.findOne().created_by == Meteor.userId() || Roles.userIsInRole(Meteor.userId(), ['admin']) ) {
-        return true;
-      } else {
-        return false;
+      if (Meteor.userId()) {
+        if (Stories.findOne().created_by == Meteor.userId() || Roles.userIsInRole(Meteor.userId(), ['admin'])) {
+          return true;
+        } else {
+          return false;
+        }
       }
-     }
     }
   },
   tags() {
@@ -135,10 +136,10 @@ Template.singleStoryPage.events({
     if (Meteor.userId()) {
       Meteor.call("increaseLikes", data, function (error, result) {
         if (error) {
-          
+
         }
         if (result) {
-          
+
 
         }
       });
@@ -169,43 +170,36 @@ Template.singleStoryPage.events({
     }
     return false; // stop event propagation and browser default event
   },
-  'click #js-delete-story'(event,template){
+  'click #js-delete-story'(event, template) {
     let idStory = Stories.findOne()._id;
-    
-    Meteor.call('deleteStory', idStory, function(error, success) { 
-      if (error) { 
-         
-      Bert.alert("خطایی رخ داده است", "warning", "growl-top-right")
-        
-      } 
-      if (success) { 
+
+    Meteor.call('deleteStory', idStory, function (error, success) {
+      if (error) {
+
+        Bert.alert("خطایی رخ داده است", "warning", "growl-top-right")
+
+      }
+      if (success) {
         FlowRouter.redirect("/")
-      Bert.alert("داستان شما با موفقیت حذف شد.", "success", "growl-top-right")
-        
-      } 
-});
+        Bert.alert("داستان شما با موفقیت حذف شد.", "success", "growl-top-right")
+
+      }
+    });
   }
 
 });
 
 Template.singleStoryPage.onRendered(function () {
   //fixed sidebar
-  setTimeout(function(){
+  setTimeout(function () {
     $('.modal').modal();
-  },1000)
+  }, 1000)
   if ($(window).width() > 996) {
 
-      fixedSidebr();
+    fixedSidebr();
 
-      // setTimeout(function () {fixedSidebr();},1000);
+    // setTimeout(function () {fixedSidebr();},1000);
   }
-  // $(window).resize(function(){
-
-  //   if($(window).width() > 996){
-  //     fixedSidebr();
-  //   }
-  // })
-  // end fixed sidebar
 
 
 });
@@ -214,28 +208,27 @@ function fixedSidebr() {
     let $sidebar = $(".sidebar-single-page"),
       $back = $("#back"),
       $window = $(window),
-      offset = $sidebar.offset(),
-      offsetFooter = $('footer').offset().top;
-      $window.scroll(function () {
-        if($(".sidebar-single-page").length >0){
-          
-          if ($window.scrollTop() > offset.top && $window.scrollTop() < parseInt($('.main-content').height()) - parseInt($('.main-content').offset().top -parseInt($('.share-it').height()) ) -parseInt(120) ) {
-            $sidebar.css({
-              marginTop: $window.scrollTop() - offset.top+150
-            });
-            $back.css({
-              marginTop: $window.scrollTop() - offset.top+150
-            });
-          } else {
-            $sidebar.css({
+      offset = $sidebar.position(),
+      offsetFooter = $('footer').position().top;
+    $window.scroll(function () {
+      if ($(".sidebar-single-page").length > 0) {
+        if ($window.scrollTop() > offset.top && $window.scrollTop() < (parseInt($('.main-content').height()) - parseInt($('.main-content').position().top - parseInt($('.share-it').height())) - parseInt(400)) ) {
+          $sidebar.css({
+            marginTop: $window.scrollTop() - offset.top + 150
+          });
+          $back.css({
+            marginTop: $window.scrollTop() - offset.top + 150
+          });
+        } else {
+          $sidebar.css({
             marginTop: 0
-            });
-            $back.css({
-              marginTop: 0
-              });
-          }
+          });
+          $back.css({
+            marginTop: 0
+          });
         }
-        });
+      }
+    });
   }, 1000)
 
 }

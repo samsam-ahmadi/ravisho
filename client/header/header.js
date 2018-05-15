@@ -70,7 +70,14 @@ Template.header.events({
     let tl = new TimelineMax();
     tl
     .staggerTo('.menu-content-primary .item',0.2,{opacity:0,y:0},0.1)
-    .to('.menu-content', 0.3, { opacity:0} )
+    .to('.menu-content', 0.1, { opacity:0} )
+    .to('.menu-content', 0.1, { display:'none'} )
+  },
+  "click .menu-content-primary .item-link a"(events,template){
+    let tl = new TimelineMax();
+    tl
+    .staggerTo('.menu-content-primary .item',0.2,{opacity:0,y:0},0.1)
+    .to('.menu-content', 0.1, { opacity:0} )
     .to('.menu-content', 0.1, { display:'none'} )
   },
   "click #logout"(events,template){
@@ -92,7 +99,7 @@ Template.header.events({
     let tl = new TimelineMax();
     tl
     .staggerTo('.menu-content-primary .item',0.2,{opacity:0,y:0},0.1)
-    .to('.menu-content', 0.3, { opacity:0} )
+    .to('.menu-content', 0.1, { opacity:0} )
     .to('.menu-content', 0.1, { display:'none'} );
     FlowRouter.redirect("/");
     Session.set('category', events.currentTarget.textContent);
@@ -101,7 +108,7 @@ Template.header.events({
     let tl = new TimelineMax();
     tl
     .staggerTo('.menu-content-primary .item',0.2,{opacity:0,y:0},0.1)
-    .to('.menu-content', 0.3, { opacity:0} )
+    .to('.menu-content', 0.1, { opacity:0} )
     .to('.menu-content', 0.1, { display:'none'} );
     FlowRouter.redirect("/");
     Session.set('category', events.currentTarget.textContent);

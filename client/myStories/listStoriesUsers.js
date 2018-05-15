@@ -54,6 +54,8 @@ Template.listStoriesUser.helpers({
       
       if(data.draft){
           return "/images/condition/draft.svg"
+        }else if(!data.published && data.content_problems.length > 1){
+            return "/images/condition/waiting-for-submit.svg"
         }else if (data.content_problems&& data.content_problems.length > 1){
             return "/images/condition/corrected.svg"
         }else if(!data.published){

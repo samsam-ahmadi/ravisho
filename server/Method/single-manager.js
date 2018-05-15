@@ -38,7 +38,7 @@ Meteor.methods({
         try {
           let result = Stories.update({ _id: data._id }, { $set: { published: true, show_manager: false, best_stories: false, content_problems: "",created_at:new Date } })
           if (result) {
-            Meteor.users.update({ _id: data.created_by }, { $inc: { countStories: 1 } })
+          Meteor.users.update({ _id: data.created_by }, { $set: { countStories: Stories.find({"_id":data.created_by}).count()} })
             return result;
           } else {
             return result;
@@ -92,7 +92,7 @@ Meteor.methods({
 
         let result = Stories.update({ _id: data._id }, { $set: { published: true, show_manager: false, best_stories: true, content_problems: '',created_at:new Date } })
         if (result) {
-          Meteor.users.update({ _id: data.created_by }, { $inc: { countStories: 1 } })
+          Meteor.users.update({ _id: data.created_by }, { $set: { countStories: Stories.find({"_id":data.created_by}).count()} })
           return result;
         } else {
           return result;
