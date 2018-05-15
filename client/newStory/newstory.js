@@ -38,7 +38,7 @@ var hooksObject = {
       //return replaced texxt with _ 
       tagsArray = tagsInput.map((item) => {
         item = item.replace(/\s+/g, '_');
-        console.log('item: ', item);
+        
   
         if (item[item.length - 1] == "_") {
           item = item.slice(0, -1)
@@ -109,7 +109,7 @@ Template.newStory.events({
     //return replaced texxt with _ 
     tagsArray = tagsInput.map((item) => {
       item = item.replace(/\s+/g, '_');
-      console.log('item: ', item);
+      
 
       if (item[item.length - 1] == "_") {
         item = item.slice(0, -1)

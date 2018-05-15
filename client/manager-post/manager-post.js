@@ -29,12 +29,18 @@ Template.managerPostPage.helpers({
         let data = Stories.findOne();
         if(data.unknown){
 
-          return {"profile":{"picture":"/images/default/unknown.png"},"username":"(راوی شو (ناشناس","unknown":true};
+          return {"profile":{"pictures":"/images/default/unknown.png"},"username":"(راوی شو (ناشناس","unknown":true};
           // sub ready
         }else{
           let sub =  Meteor.subscribe("managerUserPageSub",data.created_by);
           if(sub.ready()){
-            return Meteor.users.findOne({"_id":data.created_by});
+            let result =  Meteor.users.findOne({"_id":data.created_by});
+            if(result.profile.pictures){
+              return result;
+            }else{
+          return {"profile":{"pictures":'/images/default/profile.png'},"username":result.username,"countStories":result.countStories};
+              
+            }
           }
         }
       }
@@ -59,7 +65,7 @@ Template.managerPostPage.events({
   //  change published story to true and chaange tags and saved to collections
   "click #js-submit-story": function(event, template){
     let data = Stories.findOne()
-    console.log('data: ', data);
+    
     // delete unnessery feilds
     delete data.stories;
     delete data.created_at;
@@ -67,7 +73,7 @@ Template.managerPostPage.events({
     
     Meteor.call("submitStory",data, function(error, result){
       if(error){
-        console.log('error: ', error);
+        
         
       }
       if(result){

@@ -15,10 +15,14 @@ Meteor.methods({
     check(id, String);
     
     let data = Stories.findOne({'_id':id});
-    if(data._id == this.userId || Roles.userIsInRole(Meteor.userId(), ['admin'])){
+    if(data.created_by == this.userId || Roles.userIsInRole(this.userId, ['admin'])){
       Meteor.users.update({ _id: data.created_by }, { $inc: { countStories: -1 } })
-      return Stories.remove({"_id":id});
-
+      let result = Stories.remove({"_id":id});
+      if(result){
+        Images.remove({"_id":data.pictures})
+        return result;
+      }
+      return result;
     }else{
       return false
     }

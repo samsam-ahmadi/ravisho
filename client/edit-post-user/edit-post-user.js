@@ -85,7 +85,7 @@ var hooksObject = {
             //return replaced texxt with _ 
             tagsArray = tagsInput.map((item) => {
                 item = item.replace(/\s+/g, '_');
-                // console.log('item: ', item);
+                // 
     
                 if (item[item.length - 1] == "_") {
                     item = item.slice(0, -1)
@@ -97,7 +97,7 @@ var hooksObject = {
 
             doc.$set.tags = tagsArray;
             doc.$set.id = Stories.findOne()._id
-            console.log('doc: ', doc);
+            
 
             if (Roles.userIsInRole(Meteor.userId(), ['blocked']) || doc.$set.created_by != Meteor.userId()) {
                 Bert.alert("شما اجازه تغییر داستان را ندارید.", 'danger', 'growl-top-right')
@@ -107,11 +107,11 @@ var hooksObject = {
 
             Meteor.call('editStory', doc, function (error, success) {
                 if (error) {
-                    console.log('error', error);
+                    
                     return false;
                 }
                 if (success) {
-                    console.log('success: ', success);
+                    
                     FlowRouter.redirect("/stories/" + Meteor.user().username)
                     return false;
                 }
@@ -164,7 +164,7 @@ Template.updateStory.events({
         //return replaced texxt with _ 
         tagsArray = tagsInput.map((item) => {
             item = item.replace(/\s+/g, '_');
-            // console.log('item: ', item);
+            // 
 
             if (item[item.length - 1] == "_") {
                 item = item.slice(0, -1)

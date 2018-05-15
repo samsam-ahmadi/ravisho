@@ -4,7 +4,7 @@ Meteor.publish("managerPostPageSub", function(id){
   if(Roles.userIsInRole(this.userId, ['admin','management'])){
     let data = Stories.findOne({"_id":id})
     if(data.unknown){
-      console.log('CONDITION PASSED')
+      
       return  Stories.find({_id : id},
         {
           fields: {

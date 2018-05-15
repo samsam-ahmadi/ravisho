@@ -80,7 +80,7 @@ Meteor.publish("stories_home", function (data) {
   } else {
     delete sortObj.count_likes
   }
-  console.log("sortObj", query)
+  
 
   // pubslish and return stories
 
@@ -136,7 +136,7 @@ let filterField = function (fields) {
 Meteor.publish("images_home", function (arr) {
   if (Meteor.users.find().fetch().length < 2) {
 
-    console.log('Creating users: ');
+    
 
     var users = [
       { name: "Normal User", username: "normal", email: "normal@example.com", profile: { phone: "93931162876" }, roles: ['default'] },
@@ -149,7 +149,7 @@ Meteor.publish("images_home", function (arr) {
       var id,
         user;
 
-      console.log(userData);
+      
 
       id = Accounts.createUser({
         email: userData.email,
@@ -178,9 +178,4 @@ Meteor.publish("images_home", function (arr) {
 
 Meteor.publish('getusersImageHome', function (arr) {
   return Meteor.users.find({ "_id": { $in: arr } }, { fields: { username: 1, profile: 1 } })
-});
-
-
-Meteor.publish('tags', function(argument) {
-  return Tags.find();
 });

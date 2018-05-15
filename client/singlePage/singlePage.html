@@ -1,6 +1,6 @@
 <template name="singleStoryPage">
   {{#if Template.subscriptionsReady}}
-  <main>
+  <main id="single-post">
     <div class="container">
       <div class="row">
         <!-- sidebar profile  -->
@@ -13,7 +13,7 @@
                   <div class="row">
                     {{#if StoriesUser.profile.picture}}
                     <img src="{{StoriesUser.profile.picture}}" width="55px" height="55px" class="circle right z-depth-1" alt=""> {{else}}
-                    <img src="/images/logo.svg" width="55px" height="55px" class="circle right z-depth-1" alt=""> {{/if}}
+                    <img src="/images/default/profile.png" width="55px" height="55px" class="circle right z-depth-1" alt=""> {{/if}}
                     <p class="username">{{StoriesUser.username}}</p>
                   </div>
                   <div class="row item rtl">
@@ -34,12 +34,12 @@
                     <a> #{{this}}</a>
                     {{/each}}
                   </div>
-                  {{#if StoriesUser.unknown}}
+                  {{#unless StoriesUser.unknown}}
                   <div class="row item rtl share">
                     <p class="">تعداد داستان‌های کاربر: </p>
                     <a>{{StoriesUser.countStories}}</a>
                   </div>
-                  {{/if}}
+                  {{/unless}}
                   <div class="like-post {{countLikesStories.like}} {{#unless postItem.published}} hide {{/unless}}">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 94 94"
                       style="enable-background:new 0 0 94 94;" xml:space="preserve">

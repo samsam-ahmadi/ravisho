@@ -11,7 +11,7 @@ Accounts.emailTemplates.resetPassword = {
         return "راوی‌شو - بازیابی رمز عبور";
     },
     html(user, url) {
-        console.log("user",user)
+        
 
         let token = url.substring(url.lastIndexOf('/')+1, url.length);
             url = Meteor.absoluteUrl('reset-password/' + token);
@@ -124,7 +124,7 @@ Accounts.emailTemplates.resetPassword = {
                 <![endif]--><div style="margin:0px auto;max-width:640px;background:#ffffff;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#ffffff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:40px 70px;"><!--[if mso | IE]>
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:top;width:640px;">
                 <![endif]--><div aria-labelledby="mj-column-per-100" class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-break:break-word;font-size:0px;padding:0px 0px 20px;" align="left"><div style="cursor:auto;color:#737F8D;font-family:Whitney, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;font-size:16px;line-height:24px;text-align:right;direction:rtl">
-                        <p><img src="https://ravisho.com/images/email/reset-password.svg" alt="ثبت نام" title="None" width="500" style="height: auto;"></p>
+                        <p><img src="https://ravisho.com/images/email/reset-password.png" alt="ثبت نام" title="None" width="500" style="height: auto;"></p>
 
             <h2 style="font-family: Vazir, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;font-weight: 500;font-size: 20px;color: #4F545C;letter-spacing: 0.27px;direction:rtl">سلام،</h2>
             <p>این ایمیل به درخواست شما جهت بازیابی کلمه عبور ارسال شده است. در صورتی که این درخواست توسط شما ثبت نگردیده است میتوانید آن را نادیده بگیرید.</p>
@@ -267,7 +267,7 @@ Accounts.emailTemplates.verifyEmail.html = function (user, url) {
         </style>
         <div style="margin:0px auto;max-width:640px;background:transparent;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:transparent;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:40px 0px;"><!--[if mso | IE]>
             <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:top;width:640px;">
-            <![endif]--><div aria-labelledby="mj-column-per-100" class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-break:break-word;font-size:0px;padding:0px;" align="center"><table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px;" align="center" border="0"><tbody><tr><td style="width:138px;"><a href="https://ravisho.com/" target="_blank"><img alt="" title="" height="38px" src="https://ravisho.com/images/logo.svg" style="border:none;border-radius:;display:block;outline:none;text-decoration:none;width:100%;height:38px;" width="138"></a></td></tr></tbody></table></td></tr></tbody></table></div><!--[if mso | IE]>
+            <![endif]--><div aria-labelledby="mj-column-per-100" class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-break:break-word;font-size:0px;padding:0px;" align="center"><table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px;" align="center" border="0"><tbody><tr><td style="width:138px;"><a href="https://ravisho.com/" target="_blank"><img alt="" title="" height="38px" src="https://ravisho.com/images/logo.png" style="border:none;border-radius:;display:block;outline:none;text-decoration:none;width:100%;height:38px;" width="138"></a></td></tr></tbody></table></td></tr></tbody></table></div><!--[if mso | IE]>
             </td></tr></table>
             <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
             </td></tr></table>
@@ -276,9 +276,9 @@ Accounts.emailTemplates.verifyEmail.html = function (user, url) {
             <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="640" align="center" style="width:640px;">
                 <tr>
                 <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
-            <![endif]--><div style="max-width:640px;margin:0 auto;box-shadow:0px 1px 5px rgba(0,0,0,0.1);border-radius:4px;overflow:hidden"><div style="margin:0px auto;max-width:640px;background:#7289DA url(https://ravisho.com/images/logo.svg) top center / cover no-repeat;"><!--[if mso | IE]>
+            <![endif]--><div style="max-width:640px;margin:0 auto;box-shadow:0px 1px 5px rgba(0,0,0,0.1);border-radius:4px;overflow:hidden"><div style="margin:0px auto;max-width:640px;background:#7289DA url(https://ravisho.com/images/logo.png) top center / cover no-repeat;"><!--[if mso | IE]>
             <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:640px;">
-                <v:fill origin="0.5, 0" position="0.5,0" type="tile" src="https://ravisho.com/images/logo.svg" />
+                <v:fill origin="0.5, 0" position="0.5,0" type="tile" src="https://ravisho.com/images/logo.png" />
                 <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
             <![endif]--><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#7289DA url(https://ravisho.com/images/email/bg-email.png) top center / cover no-repeat;" align="center" border="0" background="https://ravisho.com/images/email/bg-email.png"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:57px;"><!--[if mso | IE]>
             <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:undefined;width:640px;">

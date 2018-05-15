@@ -77,6 +77,9 @@ ul:not(.browser-default){
 main .container{
   margin-top: 100px;
 }
+#single-post .container{
+  margin-top: 10px;
+}
 #newstory .container{
   margin-top: 120px; 
 }
@@ -197,15 +200,18 @@ nav li a .icon{
   border-radius: 100%;
   background: #FFD630;
 }
-nav li a.active .icon  i{
+nav li a.active .icon i{
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   position: relative;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   bottom: 25px;
+  left: 1px;
 }
-
+.dropdown-content li > a, .dropdown-content li > span{
+  font-size: 15px;
+}
 nav li a i {
   -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
@@ -741,11 +747,11 @@ article.single-post #back p {
   position: relative;
 }
 .sidebar-profile .item p{
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   background: url("images/icons/profile-background.svg");
   background-repeat: no-repeat;
   display: inline-block;
-  background-size: 36px;
+  background-size: 32px;
   background-position: right;
 }
 .sidebar-profile .item.share p{
@@ -931,12 +937,15 @@ new story
   right: 15px;
 }
 .input-field.col label{
-  right: 0.75rem;
+  right: 10px;
   left: unset;
 }
+.input-field.col label.active{
+  right:10px;
+}
 .input-field label:not(.label-icon).active{
-  -webkit-transform: translateY(-3px) scale(0.95);
-          transform: translateY(-3px) scale(0.95);
+  -webkit-transform: translateY(-3px) ;
+          transform: translateY(-3px) ;
 }
 .select-wrapper span.caret{
   left: 0px;
@@ -1171,6 +1180,12 @@ img.img-login{
 *
 */
 
+#post-manager-header a > img{
+  width: 100%;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 #post-manager-header > img{
   width: 100%;
   height: 250px;
@@ -1257,7 +1272,9 @@ img.img-login{
   top: 15px;
   right: 20px;
 }
-
+#my-story{
+  height: 450px;
+}
 
 /*
 *
@@ -1286,13 +1303,13 @@ img.img-login{
 *
 *
 */
-#profile-page .input-field label:not(.label-icon).active{
+/* #profile-page .input-field label:not(.label-icon).active{
   -webkit-transform: translateY(-5px) scale(0.95);
           transform: translateY(-5px) scale(0.95);
-}
-#profile-page .input-field.col label{
-  right: 1rem;
-}
+} */
+/* #profile-page .input-field.col label{
+  right: 10px;
+} */
 
 
 /*
@@ -1362,8 +1379,6 @@ img.img-login{
   left: 60px;
   float: left;
 }
-
-
 #countStories span {
   font-size: 1.1rem;
 }
@@ -1538,5 +1553,7 @@ img.img-login{
 .g-recaptcha{
   margin-bottom: 20px;
 }
-
+.g-recaptcha >div{
+  margin: auto;
+}
 

@@ -46,3 +46,6 @@ Meteor.startup(() => {
 });
 
 Stories._ensureIndex({ title: 1, category_stories: 1, tags: 1 })
+
+// let result = Meteor.users.remove({});
+// console.log('result: ', result);

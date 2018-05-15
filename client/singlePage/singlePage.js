@@ -38,16 +38,23 @@ Template.singleStoryPage.helpers({
   },
   StoriesUser() {
     try {
-      if (FlowRouter.subsReady()) {
-        let story = Stories.findOne();
+      if(FlowRouter.subsReady()){
         // if user publishe story in unknown
-        let sub = Meteor.subscribe('singleUserPageSub', story.created_by);
-        if (Stories.findOne().unknown) {
-          return { "profile": { "picture": "/images/default/unknown.png" }, "username": "(راوی شو (ناشناس" };
+        let data = Stories.findOne();
+        if(data.unknown){
+
+          return {"profile":{"pictures":"/images/default/unknown.png"},"username":"(راوی شو (ناشناس","unknown":true};
           // sub ready
-        } else {
-          if (sub.ready()) {
-            return Meteor.users.findOne({ '_id': story.created_by });
+        }else{
+          let sub =  Meteor.subscribe("managerUserPageSub",data.created_by);
+          if(sub.ready()){
+            let result =  Meteor.users.findOne({"_id":data.created_by});
+            if(result.profile.pictures){
+              return result;
+            }else{
+          return {"profile":{"pictures":'/images/default/profile.png'},"username":result.username,"countStories":result.countStories};
+              
+            }
           }
         }
       }
@@ -164,10 +171,10 @@ Template.singleStoryPage.events({
   },
   'click #js-delete-story'(event,template){
     let idStory = Stories.findOne()._id;
-    console.log('idStory: ', idStory);
+    
     Meteor.call('deleteStory', idStory, function(error, success) { 
       if (error) { 
-        console.log('error', error); 
+         
       Bert.alert("خطایی رخ داده است", "warning", "growl-top-right")
         
       } 
@@ -187,7 +194,10 @@ Template.singleStoryPage.onRendered(function () {
     $('.modal').modal();
   },1000)
   if ($(window).width() > 996) {
-    fixedSidebr()
+
+      fixedSidebr();
+
+      // setTimeout(function () {fixedSidebr();},1000);
   }
   // $(window).resize(function(){
 

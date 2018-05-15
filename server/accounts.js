@@ -16,7 +16,7 @@ Accounts.onCreateUser(function(options, user) {
 
 AccountsTemplates.configure({
 	reCaptcha: {
-		secretKey: "6LfTt1QUAAAAAInub1RKzWo_ZVQgjhJwzNPDSmME"
+        secretKey: "6LfTt1QUAAAAAInub1RKzWo_ZVQgjhJwzNPDSmME",
 	},
 	sendVerificationEmail: true,
 });

@@ -1,6 +1,5 @@
 import moment from 'moment-jalaali'
 
-Meteor.subscribe('taags');
 Template.mainIndex.helpers({
   listStories: function () {
     moment.locale('fa');
@@ -19,6 +18,8 @@ Template.mainIndex.helpers({
       sortObj.created_at = Session.get('created_at');
     }
     // end sort data 
+    
+
     return Stories.find({}, { sort: sortObj });
   },
   ImageId() {
@@ -58,7 +59,15 @@ Template.mainIndex.helpers({
         })
         let subUsers = Meteor.subscribe("getusersImageHome", newarr);
         if (subUsers.ready()) {
-          return Meteor.users.findOne({ "_id": id }).profile.picture
+          
+          let picture = Meteor.users.findOne({ "_id": id }).profile.picture
+          if(picture){
+            return picture;
+          }else{
+            return '/images/default/profile.png';
+          }
+          
+          
         }
       } else {
         return "/images/default/unknown.png"
@@ -171,7 +180,7 @@ Template.mainIndex.events({
       default:
         Session.set("unknownHome", "");
     }
-    console.log("Session.get",Session.get("unknownHome"));
+    
   }
   // filter
 });

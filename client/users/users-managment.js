@@ -17,11 +17,11 @@ Template.userList.onCreated(function () {
 
 Template.userList.helpers({
 	users: function () {
-		// if (Meteor.user()) {
-		// if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
+		if (Meteor.user()) {
+		if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
 		return Meteor.users.find();
-		// }
-		// }
+		}
+		}
 	},
 	isBanned: function (data) {
 		if (data) {

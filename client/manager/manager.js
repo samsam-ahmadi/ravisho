@@ -1,7 +1,7 @@
 import moment from 'moment-jalaali'
 Template.managerPage.helpers({
   listStories: function(){
-      return Stories.find({});
+      return Stories.find({},{sort: { created_at : -1}});
   },
   ImageId(){
     findIdImage= Stories.findOne({_id:Template.parentData(0)._id});
@@ -28,7 +28,12 @@ Template.managerPage.helpers({
         })
         let subUsers = Meteor.subscribe("getusersImageHome",newarr);
         if(subUsers.ready()){
-          return Meteor.users.findOne({"_id":id}).profile.picture
+          let result =  Meteor.users.findOne({"_id":id}).profile.picture
+          if(result){
+            return result;
+          }else{
+            return '/images/default/profile.png';
+          }
         }
       }else{
         return "/images/default/unknown.png"

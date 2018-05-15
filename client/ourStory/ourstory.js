@@ -40,7 +40,7 @@ Template.ourStory.onRendered(function() {
         // leftitem = itemCount -1;
         leftitem = itemCount;
       }
-      console.log("right");
+      
 
       // with alireza
       // $('.right-pos').removeClass('right-pos').addClass('back-pos');

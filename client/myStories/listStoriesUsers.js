@@ -11,7 +11,7 @@ Template.listStoriesUser.helpers({
             return false;
         }
         
-        return Stories.find();
+        return Stories.find({},{sort:{created_at: -1},});
     }
   },
   ImageId(){
@@ -36,24 +36,22 @@ Template.listStoriesUser.helpers({
     return moment(date).format('jD-jMMMM')
   },
   profileImg(){
-    let arrIdPicStorie = [];
-
-    findIdImage= Stories.find().map((item)=>{
-        if(item.created_by){
-            arrIdPicStorie.push(item.created_by);
-        }
-    });
-    let subscribeImage = Meteor.subscribe('subscibeListStoriesUser',arrIdPicStorie);
+    let subscribeImage = Meteor.subscribe('subscibeListStoriesUser',Stories.findOne().created_by);
     if(subscribeImage.ready()){
-        return Meteor.users.findOne({
-            _id : Stories.findOne({_id:Template.parentData(0)._id}).created_by
-        });
+
+
+       let result =  Meteor.users.findOne({_id : Stories.findOne({}).created_by}).profile.picture;
+        if(result){
+            return result;
+        }else{
+            return '/images/default/profile.png';
+        }
     }  
   },
   condition(){
       
       let data = Template.parentData(0);
-      console.log('data: ', data);
+      
       if(data.draft){
           return "/images/condition/draft.svg"
         }else if (data.content_problems&& data.content_problems.length > 1){

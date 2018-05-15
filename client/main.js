@@ -2,7 +2,6 @@ Meteor.startup(function(){
   // moment.locale('fa');
   reCAPTCHA.config({
     publickey: '6LfTt1QUAAAAANzxvqdbY1eoVjuzXr9TsrzGENul',
-    hl: 'fa' // optional display language
 });
 });
 
