@@ -128,6 +128,28 @@ Template.newStory.events({
 
 
 
+  },
+  'click #back'(event,templaate){
+    var defaultLocation = "https://www.ravisho.com";
+    var oldHash = window.location.hash;
+    history.back(); // Try to go back
+    var newHash = window.location.hash;
+    if (
+      newHash === oldHash &&
+      (typeof (document.referrer) !== "string" || document.referrer === "")
+    ) {
+      window.setTimeout(function () {
+        // redirect to default location
+        window.location.href = defaultLocation;
+      }, 1000); // set timeout in ms
+    }
+    if (e) {
+      if (e.preventDefault)
+        e.preventDefault();
+      if (e.preventPropagation)
+        e.preventPropagation();
+    }
+    return false; // stop event propagation and browser default event
   }
 });
 

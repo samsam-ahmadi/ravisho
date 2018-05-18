@@ -51,13 +51,18 @@ Template.listStoriesUser.helpers({
   condition(){
       
       let data = Template.parentData(0);
+      console.log('data: ', data);
       
       if(data.draft){
           return "/images/condition/draft.svg"
-        }else if(!data.published && data.content_problems.length > 1){
+        }else if(data.show_manager){
+            return "/images/condition/waiting-for-submit.svg"
+        }else if(data.show_manager && data.content_problems.length > 1){
             return "/images/condition/waiting-for-submit.svg"
         }else if (data.content_problems&& data.content_problems.length > 1){
             return "/images/condition/corrected.svg"
+        }else if(!data.published && data.content_problems.length > 1){
+            return "/images/condition/waiting-for-submit.svg"
         }else if(!data.published){
             return "/images/condition/waiting-for-submit.svg"
         }else if(data.best_stories){

@@ -36,9 +36,9 @@ Meteor.methods({
           }
         }
         try {
-          let result = Stories.update({ _id: data._id }, { $set: { published: true, show_manager: false, best_stories: false, content_problems: "",created_at:new Date } })
+          let result = Stories.update({ _id: data._id }, { $set: { published: true, show_manager: false, best_stories: false, content_problems: "" } })
           if (result) {
-          Meteor.users.update({ _id: data.created_by }, { $set: { countStories: Stories.find({"_id":data.created_by}).count()} })
+            Meteor.users.update({ _id: data.created_by }, { $set: { countStories: Stories.find({ "created_by": data.created_by, published: true }).count() } })
             return result;
           } else {
             return result;
@@ -90,9 +90,11 @@ Meteor.methods({
         }
         // and finaly update story for published
 
-        let result = Stories.update({ _id: data._id }, { $set: { published: true, show_manager: false, best_stories: true, content_problems: '',created_at:new Date } })
+        let result = Stories.update({ _id: data._id }, { $set: { published: true, show_manager: false, best_stories: true, content_problems: '' } })
         if (result) {
-          Meteor.users.update({ _id: data.created_by }, { $set: { countStories: Stories.find({"_id":data.created_by}).count()} })
+          console.log('data.created_by: ', data.created_by);
+          console.log("test", Stories.find({ "created_by": data.created_by, published: true }).count());
+          Meteor.users.update({ _id: data.created_by }, { $set: { countStories: Stories.find({ "created_by": data.created_by, published: true }).count() } })
           return result;
         } else {
           return result;

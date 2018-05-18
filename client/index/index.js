@@ -259,3 +259,4 @@ Template.mainIndex.onRendered(function () {
 
   });
 })
+

@@ -65,6 +65,7 @@ fortawesome:fontawesome@4.5.0
 fourseven:scss@4.5.4
 geojson-utils@1.0.10
 gildaspk:autoform-materialize@0.0.26
+goltfisch:hotjar@0.1.2
 handlebars@1.0.7
 hipstersmoothie:scrollmagic@0.0.9
 hot-code-push@1.0.4

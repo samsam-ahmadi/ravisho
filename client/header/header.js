@@ -120,4 +120,6 @@ Template.header.rendered = function(){
     $(".dropdown-button").dropdown();
   }, 500);
   $(".dropdown-button").dropdown();
+
+
 }

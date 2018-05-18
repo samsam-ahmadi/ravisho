@@ -22,7 +22,7 @@ Meteor.methods({
 
         Email.send({
             to: data.email,
-            from: "info@ravisho.ir",
+            from: "info@ravisho.com",
             subject: "راوی‌شو - " + data.subject,
             text: `
             سلام ${data.name}
@@ -35,8 +35,8 @@ Meteor.methods({
 
 
         Email.send({
-            to: "support@ravisho.ir",
-            from: "info@ravisho.ir",
+            to: "support@ravisho.com",
+            from: "info@ravisho.com",
             subject: "راوی‌شو - " + data.subject,
             text: `
 

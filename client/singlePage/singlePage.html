@@ -12,8 +12,8 @@
                 <div class="col s12 right-align sidebar-profile">
                   <div class="row">
                     {{#if StoriesUser.profile.picture}}
-                    <img src="{{StoriesUser.profile.picture}}" width="55px" height="55px" class="circle right z-depth-1" alt=""> {{else}}
-                    <img src="/images/default/profile.png" width="55px" height="55px" class="circle right z-depth-1" alt=""> {{/if}}
+                    <img src="{{StoriesUser.profile.picture}}" width="55px" height="55px" class="circle right z-depth-1" alt="{{StoriesUser.username}}"> {{else}}
+                    <img src="/images/default/unknown.png" width="55px" height="55px" class="circle right z-depth-1" alt="داستان ناشناس"> {{/if}}
                     <p class="username">{{StoriesUser.username}}</p>
                   </div>
                   <div class="row item rtl">

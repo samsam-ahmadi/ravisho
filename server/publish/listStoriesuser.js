@@ -16,7 +16,8 @@ Meteor.publish('listStoryUserPageSub', function(username) {
                 'published':1,
                 'draft':1,
                 'content_problems':1,
-                'unknown':1
+                'unknown':1,
+                'show_manager':1
 
             }
         })
