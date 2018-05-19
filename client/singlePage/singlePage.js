@@ -41,6 +41,18 @@ Template.singleStoryPage.helpers({
       if(FlowRouter.subsReady()){
         // if user publishe story in unknown
         let data = Stories.findOne();
+        if(data.created_by == Meteor.userId() && Meteor.userId()){
+          let sub =  Meteor.subscribe("managerUserPageSub",data.created_by);
+          if(sub.ready()){
+            let result =  Meteor.users.findOne({"_id":data.created_by});
+            if(result.profile.picture){
+              return result;
+            }else{
+          return {"profile":{"picture":'/images/default/profile.png'},"username":result.username,"countStories":result.countStories};
+              
+            }
+          }
+        }
         if(data.unknown){
 
           return {"profile":{"pictures":"/images/default/unknown.png"},"username":"(راوی شو (ناشناس","unknown":true};
@@ -49,7 +61,6 @@ Template.singleStoryPage.helpers({
           let sub =  Meteor.subscribe("managerUserPageSub",data.created_by);
           if(sub.ready()){
             let result =  Meteor.users.findOne({"_id":data.created_by});
-            
             if(result.profile.picture){
               return result;
             }else{
@@ -210,14 +221,15 @@ function fixedSidebr() {
       $window = $(window),
       offset = $sidebar.position(),
       offsetFooter = $('footer').position().top;
+      console.log('offset: ', $window.scrollTop() +"saada" +(parseInt(offset.top) -parseInt(30)));
     $window.scroll(function () {
       if ($(".sidebar-single-page").length > 0) {
-        if ($window.scrollTop() > offset.top && $window.scrollTop() < (parseInt($('.main-content').height()) - parseInt($('.main-content').position().top - parseInt($('.share-it').height())) - parseInt(400)) ) {
+        if ($window.scrollTop() > (parseInt(offset.top) -parseInt(50)) && $window.scrollTop() < (parseInt($('.main-content').height()) - parseInt($('.main-content').position().top - parseInt($('.share-it').height())) - parseInt(400)) ) {
           $sidebar.css({
-            marginTop: $window.scrollTop() - offset.top + 150
+            marginTop: $window.scrollTop() + 80,
           });
           $back.css({
-            marginTop: $window.scrollTop() - offset.top + 150
+            marginTop: $window.scrollTop() + 80,
           });
         } else {
           $sidebar.css({

@@ -69,7 +69,7 @@ input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:n
   padding:0px;
 }
 .no-margin{
-  margin:0px;
+  margin:0px !important;
 }
 ul:not(.browser-default){
   padding-right: 0px;
@@ -191,6 +191,7 @@ nav li a img {
   width: 56px;
   height: 56px;
   border-radius: 100%;
+  object-fit: cover;
 }
 nav li a .icon{
   width: 16px;
@@ -640,6 +641,7 @@ input::placeholder{
   -webkit-box-shadow: 0 2px 2px 0 rgb(248, 216, 53), 0 1px 5px 0 rgb(248, 216, 53), 0 3px 1px -2px rgb(248, 216, 53);
           box-shadow: 0 2px 2px 0 rgb(248, 216, 53), 0 1px 5px 0 rgb(248, 216, 53), 0 3px 1px -2px rgb(248, 216, 53);
   left: 5px;
+  object-fit: cover;
 }
 .article .side.best-story > img{
   -webkit-box-shadow: 0 2px 2px 0 rgb(50, 130, 205), 0 1px 5px 0 rgb(50, 130, 205), 0 3px 1px -2px rgb(50, 130, 205);
@@ -710,7 +712,6 @@ input::placeholder{
 article.single-post{
   position: relative;
   margin-bottom: 10px;
-  width: 93% !important;
 }
 article.single-post main {
   padding: 0px 15px;
@@ -1246,6 +1247,7 @@ img.img-login{
 .like-post.like5  svg > .likesg:nth-of-type(n+2){
   display: none;
 }
+
 /*
 *
 *
@@ -1564,3 +1566,10 @@ img.img-login{
   margin: auto;
 }
 
+#tag-img-unknow{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 120px !important;
+  height: auto !important;
+}

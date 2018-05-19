@@ -37,11 +37,18 @@
   .content-problem{
     width:93%;
   }
+  article.single-post{
+    width: 93% !important;    
+    margin-left: 10px !important;
+  }
 }
 @media only screen and (max-width: 993px) {
    .single-post.new-story{
      margin-top: 60px;
    }
+   article.single-post{
+    margin: 0 15px;    
+  }
  }
 @media only screen and (max-width: 600px) {
   .row-profile-content{
@@ -54,5 +61,18 @@
   .filter-list{
     display: flex;
     flex-wrap: wrap;
+  }
+  nav li a#menu svg{
+    bottom: 0px !important  ;
+  }
+  nav li a .icon i{
+    bottom: 20px !important;
+  }
+  nav li a.active .icon i{
+    left: 0.3px !important;
+    bottom: 10px;
+  }
+  .article{
+    margin-right: 0px !important;
   }
  }

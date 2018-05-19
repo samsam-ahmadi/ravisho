@@ -113,6 +113,22 @@ Template.mainIndex.helpers({
         value: 'زندگی نامه و خاطرات',
       },
       {
+        label: 'رمان',
+        value: 'رمان',
+      },
+      {
+        label: 'داستان کوتاه',
+        value: 'داستان کوتاه',
+      },
+      {
+        label: 'درام',
+        value: 'درام',
+      },
+      {
+        label: 'شعر',
+        value: 'شعر',
+      },
+      {
         label: 'سایر',
         value: 'سایر',
       },

@@ -33,8 +33,6 @@ Meteor.methods({
             }
         )
 
-        console.log('data.created_by: ', idUser);
-        console.log("test",Stories.find({"created_by":idUser,pulished:true}).count());
         let updateCount = Meteor.users.update({ _id: idUser }, { $set: { countStories: Stories.find({"created_by":idUser,pulished:true}).count()} })
          return   Stories.update({"_id":id},data);
     } 

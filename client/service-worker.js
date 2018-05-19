@@ -1,4 +1,4 @@
-var CACHE_NAME = 'test';
+var CACHE_NAME = 'ravisho';
 var urlsToCache = [
     'manifest.json',
     'https://fonts.googleapis.com/icon?family=Material+Icons'
@@ -18,3 +18,12 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {});
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+});
