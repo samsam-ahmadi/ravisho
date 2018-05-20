@@ -221,15 +221,16 @@ function fixedSidebr() {
       $window = $(window),
       offset = $sidebar.position(),
       offsetFooter = $('footer').position().top;
-      console.log('offset: ', $window.scrollTop() +"saada" +(parseInt(offset.top) -parseInt(30)));
-    $window.scroll(function () {
+      $window.scroll(function () {
+        console.log('offset: ', $window.scrollTop() + "asdasd"+ offset.top);
+      //
       if ($(".sidebar-single-page").length > 0) {
-        if ($window.scrollTop() > (parseInt(offset.top) -parseInt(50)) && $window.scrollTop() < (parseInt($('.main-content').height()) - parseInt($('.main-content').position().top - parseInt($('.share-it').height())) - parseInt(400)) ) {
+        if ($window.scrollTop() > (parseInt(offset.top) -parseInt(30))  && $window.scrollTop() < (parseInt($('.main-content').height()) - parseInt($('.main-content').position().top - parseInt($('.share-it').height())) - parseInt(400))  ) {
           $sidebar.css({
-            marginTop: $window.scrollTop() + 80,
+            marginTop: $window.scrollTop() + 50,
           });
           $back.css({
-            marginTop: $window.scrollTop() + 80,
+            marginTop: $window.scrollTop() + 50,
           });
         } else {
           $sidebar.css({
