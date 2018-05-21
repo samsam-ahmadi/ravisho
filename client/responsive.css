@@ -50,6 +50,9 @@
    article.single-post{
     margin: 0 15px;    
   }
+  .img-title-page img{
+    width:130px;
+  }
  }
 @media only screen and (max-width: 600px) {
   .row-profile-content{

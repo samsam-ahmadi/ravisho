@@ -38,40 +38,40 @@ Template.singleStoryPage.helpers({
   },
   StoriesUser() {
     try {
-      if(FlowRouter.subsReady()){
+      if (FlowRouter.subsReady()) {
         // if user publishe story in unknown
         let data = Stories.findOne();
-        if(data.created_by == Meteor.userId() && Meteor.userId()){
-          let sub =  Meteor.subscribe("managerUserPageSub",data.created_by);
-          if(sub.ready()){
-            let result =  Meteor.users.findOne({"_id":data.created_by});
-            if(result.profile.picture){
+        if (data.created_by == Meteor.userId() && Meteor.userId()) {
+          let sub = Meteor.subscribe("managerUserPageSub", data.created_by);
+          if (sub.ready()) {
+            let result = Meteor.users.findOne({ "_id": data.created_by });
+            if (result.profile.picture) {
               return result;
-            }else{
-          return {"profile":{"picture":'/images/default/profile.png'},"username":result.username,"countStories":result.countStories};
-              
+            } else {
+              return { "profile": { "picture": '/images/default/profile.png' }, "username": result.username, "countStories": result.countStories };
+
             }
           }
         }
-        if(data.unknown){
+        if (data.unknown) {
 
-          return {"profile":{"pictures":"/images/default/unknown.png"},"username":"(راوی شو (ناشناس","unknown":true};
+          return { "profile": { "pictures": "/images/default/unknown.png" }, "username": "(راوی شو (ناشناس", "unknown": true };
           // sub ready
-        }else{
-          let sub =  Meteor.subscribe("managerUserPageSub",data.created_by);
-          if(sub.ready()){
-            let result =  Meteor.users.findOne({"_id":data.created_by});
-            if(result.profile.picture){
+        } else {
+          let sub = Meteor.subscribe("managerUserPageSub", data.created_by);
+          if (sub.ready()) {
+            let result = Meteor.users.findOne({ "_id": data.created_by });
+            if (result.profile.picture) {
               return result;
-            }else{
-          return {"profile":{"picture":'/images/default/profile.png'},"username":result.username,"countStories":result.countStories};
-              
+            } else {
+              return { "profile": { "picture": '/images/default/profile.png' }, "username": result.username, "countStories": result.countStories };
+
             }
           }
         }
       }
     } catch (e) {
-      
+
     }
   },
   jalali(date) {
@@ -136,7 +136,7 @@ Template.singleStoryPage.helpers({
 
 Template.singleStoryPage.onCreated(function () {
   if ($(window).width() > 996) {
-    fixedSidebr()
+    // fixedSidebr()
   }
 })
 
@@ -207,41 +207,41 @@ Template.singleStoryPage.onRendered(function () {
   }, 1000)
   if ($(window).width() > 996) {
 
-    fixedSidebr();
+    // fixedSidebr();
 
     // setTimeout(function () {fixedSidebr();},1000);
   }
 
 
 });
-function fixedSidebr() {
-  setTimeout(function () {
-    let $sidebar = $(".sidebar-single-page"),
-      $back = $("#back"),
-      $window = $(window),
-      offset = $sidebar.position(),
-      offsetFooter = $('footer').position().top;
-      $window.scroll(function () {
-        console.log('offset: ', $window.scrollTop() + "asdasd"+ offset.top);
-      //
-      if ($(".sidebar-single-page").length > 0) {
-        if ($window.scrollTop() > (parseInt(offset.top) -parseInt(30))  && $window.scrollTop() < (parseInt($('.main-content').height()) - parseInt($('.main-content').position().top - parseInt($('.share-it').height())) - parseInt(400))  ) {
-          $sidebar.css({
-            marginTop: $window.scrollTop() + 50,
-          });
-          $back.css({
-            marginTop: $window.scrollTop() + 50,
-          });
-        } else {
-          $sidebar.css({
-            marginTop: 0
-          });
-          $back.css({
-            marginTop: 0
-          });
-        }
-      }
-    });
-  }, 1000)
+// function fixedSidebr() {
+//   setTimeout(function () {
+//     let $sidebar = $(".sidebar-single-page"),
+//       $back = $("#back"),
+//       $window = $(window),
+//       topPadding = 15,
+//       offset = $sidebar.position(),
+//       offsetFooter = $('footer').position().top;
+//     $window.scroll(function () {
+//       if ($(".sidebar-single-page").length > 0) {
+//         if (window.pageYOffset > offset.top - 50 && $window.scrollTop() < (parseInt($('.main-content').height()) - parseInt($('.main-content').position().top - parseInt($('.share-it').height())) - 400)) {
+//           let a = window.pageYOffset - offset.top + 100
+//           $sidebar.css({
+//             position:"fixed"
+//           });
+//           $back.css({
+//             marginTop:a
+//           });
+//         } else {
+//           $sidebar.css({
+//             marginTop:0
+//           });
+//           $back.css({
+//             marginTop: 0,
+//           });
+//         }
+//       }
+//     });
+//   }, 1000)
 
-}
+// }
