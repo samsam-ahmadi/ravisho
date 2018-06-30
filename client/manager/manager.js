@@ -1,7 +1,7 @@
 import moment from 'moment-jalaali'
 Template.managerPage.helpers({
   listStories: function(){
-      return Stories.find({},{sort: { created_at : -1}});
+      return Stories.find({},{sort: { created_at : 1}});
   },
   ImageId(){
     findIdImage= Stories.findOne({_id:Template.parentData(0)._id});

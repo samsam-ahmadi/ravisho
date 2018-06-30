@@ -12,8 +12,17 @@
               </div>
             </a>
           </li>
+          <li class="hide-on-small-only">
+            <a class="grey-text text-darken-4 no-padding">{{currentUser.username}}</a>
+          </li>
           <!-- Dropdown Profile -->
           <ul id="dropdownprofile" class="dropdown-content">
+            <li class="hide-on-med-and-up">
+             <a class="center-align">
+              <h5>{{currentUser.username}}</h5>
+             </a>
+            </li>
+            <li class="divider"></li>
             {{#if isInRole 'admin'}}
             <li>
               <a href="/users">کاربران</a>
@@ -133,15 +142,20 @@
                 </div>
                 <div class="item-content">
                   <div class="item-list">
-                    <a href="">خانواده</a>
-                    <a href="">روزمرگی</a>
-                    <a href="">کودکانه</a>
                     <a href="">ترسناک</a>
-                    <a href="">مسافرت</a>
+                    <a href="">خانواده</a>
+                    <a href="">داستان کوتاه</a>
+                    <a href="">درام</a>
+                    <a href="">روزمرگی</a>
+                    <a href="">رمان</a>
+                    <a href="">زندگی نامه و خاطرات</a>
+                    <a href="">سبک زندگی</a>
+                    <a href="">شعر</a>
                     <a href="">طنز</a>
                     <a href="">کسب و کار</a>
-                    <a href="">سبک زندگی</a>
-                    <a href="">زندگی نامه و خاطرات</a>
+                    <a href="">کودکانه</a>
+                    <a href="">مسافرت</a>
+                    <a href="">سایر</a>
                   </div>
                 </div>
               </div>

@@ -3,7 +3,7 @@
     <div class="row no-margin">
       <div class="col s12">
         <div class="row no-margin img-title-page">
-          <div class="col s12 center"> <img src="/images/header/story.png" alt="داستان‌ها"> </div>
+          <div class="col s12 center"> <img src="/images/header/story.svg" alt="داستان‌ها"> </div>
         </div>
         <!-- search box and filter row -->
         <div class="row no-margin">
@@ -115,6 +115,10 @@
                             <a href="/s/{{_id}}/{{title}}">
                               <h2 class="truncate">{{title}}</h2>
                             </a>
+                            {{#with username}}
+                            <p class="truncate grey-text text-darken-3 author">نویسنده:  {{this}}</p>
+                            {{/with}}
+                            
                               <p>{{getDescription stories}} </p>
                           </div>
                         </div>

@@ -1,10 +1,12 @@
 {
-  "short_name": "ravisho",
-  "name": "راوی‌شو | محلی برای داستان نوشتن و خواندن",
+  "short_name": "Ravisho",
+  "name": "راوی‌شو - دنیایی از جنس داستان",
   "background_color": "#F8DA42",
   "theme_color": "#F8DA42",
   "display": "standalone",
-  "description": "راوی‌شو بهترین داستان‌ها",
+  "lang": "fa",
+  "dir": "rtl",
+  "description": "راوی شو - دنیایی از جنس داستان از ناگفتنی‌ها",
   "scope":".",
   "icons": [
     {

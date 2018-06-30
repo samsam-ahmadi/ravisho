@@ -42,6 +42,9 @@
     width: 93% !important;    
     margin-left: 10px !important;
   }
+  .img-title-page img{
+    width:150px;
+  }
 }
 @media only screen and (max-width: 993px) {
    .single-post.new-story{

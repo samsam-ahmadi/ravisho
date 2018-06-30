@@ -3,7 +3,7 @@ Meteor.publish("stories_manager", function(argument){
     let self = this;
 
     let handle = Stories.find({show_manager:true,draft:false,published:false},{
-              sort: { created_at : -1},
+              sort: { created_at : 1},
               fields: {
                   '_id':1,
                   'category_stories':1,

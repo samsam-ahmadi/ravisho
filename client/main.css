@@ -653,6 +653,9 @@ input::placeholder{
   bottom: 0px;
   width: 100%;
 }
+.article .card-content .author{
+  margin-bottom: 7px;
+}
 .article .side .item p,.article .side .item a{
   margin: 0px;
   position: relative;

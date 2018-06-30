@@ -23,12 +23,22 @@ Template.mainIndex.helpers({
     return Stories.find({}, { sort: sortObj });
   },
   ImageId() {
-    findIdImage = Stories.findOne({ _id: Template.parentData(0)._id });
+    let findIdImage = Stories.findOne({ _id: Template.parentData(0)._id });
     return Images.findOne({ _id: findIdImage.pictures });
+  },
+  username(){
+    if (FlowRouter.subsReady()) {
+    let  username = Stories.findOne({ _id: Template.parentData(0)._id });
+    if(username.created_by){
+      return Meteor.users.findOne({"_id":username.created_by}).username;
+    }else{
+      return "ناشناس"
+    }
+  }
   },
   getDescription(description) {
     if (FlowRouter.subsReady()) {
-      return description.replace(/<(.|\n)*?>/g, ' ').substring(0, 170) + '   ...';
+      return description.replace(/<(.|\n)*?>/g, ' ').substring(0, 110) + '   ...';
     }
   },
   jalali(date) {
@@ -77,44 +87,12 @@ Template.mainIndex.helpers({
   category() {
     return [
       {
-        label: 'خانواده',
-        value: 'خانواده',
-      },
-      {
-        label: 'روزمرگی',
-        value: 'روزمرگی',
-      },
-      {
-        label: 'کودکانه',
-        value: 'کودکانه',
-      },
-      {
         label: 'ترسناک',
         value: 'ترسناک',
       },
       {
-        label: 'مسافرت',
-        value: 'مسافرت',
-      },
-      {
-        label: 'طنز',
-        value: 'طنز',
-      },
-      {
-        label: 'کسب و کار',
-        value: 'کسب و کار',
-      },
-      {
-        label: 'سبک زندگی',
-        value: 'سبک زندگی',
-      },
-      {
-        label: 'زندگی نامه و خاطرات',
-        value: 'زندگی نامه و خاطرات',
-      },
-      {
-        label: 'رمان',
-        value: 'رمان',
+        label: 'خانواده',
+        value: 'خانواده',
       },
       {
         label: 'داستان کوتاه',
@@ -125,8 +103,40 @@ Template.mainIndex.helpers({
         value: 'درام',
       },
       {
+        label: 'روزمرگی',
+        value: 'روزمرگی',
+      },
+      {
+        label: 'رمان',
+        value: 'رمان',
+      },
+      {
+        label: 'زندگی نامه و خاطرات',
+        value: 'زندگی نامه و خاطرات',
+      },
+      {
+        label: 'سبک زندگی',
+        value: 'سبک زندگی',
+      },
+      {
         label: 'شعر',
         value: 'شعر',
+      },
+      {
+        label: 'طنز',
+        value: 'طنز',
+      },
+      {
+        label: 'کودکانه',
+        value: 'کودکانه',
+      },
+      {
+        label: 'کسب و کار',
+        value: 'کسب و کار',
+      },
+      {
+        label: 'مسافرت',
+        value: 'مسافرت',
       },
       {
         label: 'سایر',
@@ -203,7 +213,7 @@ Template.mainIndex.events({
 
 Template.mainIndex.onCreated(function () {
   let template = Template.instance();
-  $(".dropdown-button").dropdown();
+      $(".dropdown-button").dropdown();
   Session.set("limitStories", 8);
   Session.set("category", '');
   Session.set("sortLikes", 0);
