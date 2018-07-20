@@ -72,6 +72,15 @@ var hooksObject = {
     if (result) {
       Bert.alert('داستان شما با موفقیت ارسال شد.لطفا منتظر تایید آن باشید', 'success', 'growl-top-right');
       FlowRouter.redirect("/stories/"+Meteor.user().username)
+
+      Meteor.call('newStoryEmail', function(error, success) { 
+        if (error) { 
+          console.log('error', error); 
+        } 
+        if (success) { 
+           
+        } 
+      });
     }
   }
 };
