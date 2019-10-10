@@ -5,9 +5,9 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.36",
-    "bcrypt": "^1.0.3",
-    "meteor-node-stubs": "^0.3.2",
-    "moment-jalaali": "^0.7.2"
+    "@babel/runtime": "^7.6.3",
+    "bcrypt": "^3.0.6",
+    "meteor-node-stubs": "^0.4.1",
+    "moment-jalaali": "^0.9.1"
   }
 }
